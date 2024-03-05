@@ -1,19 +1,16 @@
-@import '_utilities.scss';
-@import '_hero';
+@import './_variables.scss';
+@import './_global.scss';
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+@import './_navigation.scss';
+@import './_header.scss';
+@import './_footer.scss';
 
-html {
-  font-size: 62.5%;
-}
+@import './_section_cta.scss';
+@import './_section_featured.scss';
+@import './_section_hero.scss';
+@import './_section_how.scss';
+@import './_section_meals.scss';
+@import './_section_pricing.scss';
+@import './_section_testimonials.scss';
 
-body {
-  font-family: 'Rubik', sans-serif;
-  line-height: 1;
-  font-weight: 400;
-  color: #555;
-}
+@import './_queries.scss';
