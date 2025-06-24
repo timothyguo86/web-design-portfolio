@@ -17,6 +17,4 @@ If you'd like to contribute to this collection or have suggestions for improveme
 
 This project is licensed under the [MIT License](./LICENSE).
 
-### test
-
 Happy coding❤️!
