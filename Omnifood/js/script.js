@@ -1,19 +1,19 @@
+const yearEl = document.querySelector('.year')
+const btnNavEl = document.querySelector('.btn-mobile-nav')
+const headerEl = document.querySelector('.header')
+const allLinks = document.querySelectorAll('a:link')
+const sectionHeroEl = document.querySelector('.section-hero')
+
 ///////////////////////////////////////////////////////////
 // Set current year
-const yearEl = document.querySelector('.year')
-yearEl.textContent = new Date().getFullYear()
+yearEl.textContent = new Date().getFullYear().toString()
 
 ///////////////////////////////////////////////////////////
 // Make mobile navigation work
-const btnNavEl = document.querySelector('.btn-mobile-nav')
-const headerEl = document.querySelector('.header')
-
 btnNavEl.addEventListener('click', () => headerEl.classList.toggle('nav-open'))
 
 ///////////////////////////////////////////////////////////
 // Smooth scrolling animation
-const allLinks = document.querySelectorAll('a:link')
-
 allLinks.forEach((link) => {
   link.addEventListener('click', (e) => {
     e.preventDefault()
@@ -32,15 +32,13 @@ allLinks.forEach((link) => {
       sectionEl.scrollIntoView({ behavior: 'smooth' })
     }
 
-    // Close mobile naviagtion
+    // Close mobile navigation
     if (link.classList.contains('main-nav-link')) headerEl.classList.toggle('nav-open')
   })
 })
 
 ///////////////////////////////////////////////////////////
 // Sticky navigation
-const sectionHeroEl = document.querySelector('.section-hero')
-
 const obs = new IntersectionObserver(
   (entries) => {
     entries[0].isIntersecting ? document.body.classList.remove('sticky') : document.body.classList.add('sticky')
