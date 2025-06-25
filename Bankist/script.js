@@ -96,3 +96,11 @@ const obsCallback = entries =>
 const obsOptions = { root: null, threshold: 0.6, rootMargin: `-${navHeight}px` }
 const headerObserver = new IntersectionObserver(obsCallback, obsOptions)
 headerObserver.observe(header)
+
+// Cookie message
+const message = document.createElement('div')
+message.classList.add('cookie-message')
+message.innerHTML =
+  'We use cookies for improved functionality and analytics. <button class="btn btn--sm btn--close-cookie">Got it!</button>'
+header.append(message)
+document.querySelector('.btn--close-cookie').addEventListener('click', () => message.remove())
