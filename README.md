@@ -12,7 +12,7 @@ maintain design systems.
 | 02 | [TMDB Angular](https://github.com/timothyguo86/tmdb-angular)                        | [Live Demo](https://timothyguo86.github.io/tmdb-angular/)                  |
 | 03 | [Bankist](https://github.com/timothyguo86/web-design-portfolio/tree/main/Bankist)   | [Live Demo](https://timothyguo86.github.io/web-design-portfolio/Bankist/)  |
 
-**## Contributing**
+## Contributing
 
 If you'd like to contribute to this collection or have suggestions for improvement, feel free to open an issue or submit
 a pull request. Your contributions are highly appreciated!
