@@ -50,8 +50,13 @@ const message = document.createElement('div')
 message.classList.add('cookie-message')
 message.innerHTML =
   'We use cookies for improved functionality and analytics. <button class="btn btn--sm btn--close-cookie">Got it!</button>'
-header.append(message)
-document.querySelector('.btn--close-cookie').addEventListener('click', () => message.remove())
+header.prepend(message)
+document.querySelector('.btn--close-cookie').addEventListener('click', () => {
+  message.classList.add('cookie-message--fade-out')
+  setTimeout(() => {
+    message.remove()
+  }, 500)
+})
 
 // Smooth scrolling animation
 btnScrollTo.addEventListener('click', () => {
