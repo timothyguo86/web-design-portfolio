@@ -21,6 +21,11 @@ const allSections = document.querySelectorAll('.section')
 
 const imgTargets = document.querySelectorAll('img[data-src]')
 
+const slides = document.querySelectorAll('.slide')
+const slidePrevBtn = document.querySelector('.slider__btn--left')
+const slideNextBtn = document.querySelector('.slider__btn--right')
+const dotContainer = document.querySelector('.dots')
+
 ///////////////////////////////////////
 // Modal window
 const openModal = e => {
@@ -142,3 +147,56 @@ const loadingImg = entries => {
 const imgObsOptions = { root: null, threshold: 0, rootMargin: '200px' }
 const imgObserver = new IntersectionObserver(loadingImg, imgObsOptions)
 imgTargets.forEach(img => imgObserver.observe(img))
+
+// Slider
+const slider = () => {
+  let currentSlide = 0
+  const maxSlide = slides.length
+
+  const activeDot = slide => {
+    dotContainer.querySelectorAll('.dots__dot').forEach(dot => dot.classList.remove('dots__dot--active'))
+    dotContainer.querySelector(`[data-slide="${slide}"]`).classList.add('dots__dot--active')
+  }
+  const goToSlide = slide => {
+    slides.forEach((s, i) => (s.style.transform = `translateX(${(i - slide) * 100}%)`))
+  }
+  const prevSlide = () => {
+    currentSlide = currentSlide === 0 ? maxSlide - 1 : currentSlide - 1
+    goToSlide(currentSlide)
+    activeDot(currentSlide)
+  }
+  const nextSlide = () => {
+    currentSlide = currentSlide === maxSlide - 1 ? 0 : currentSlide + 1
+    goToSlide(currentSlide)
+    activeDot(currentSlide)
+  }
+  const initializeSlides = () => {
+    slides.forEach((s, i) => {
+      s.style.transform = `translateX(${i * 100}%)`
+      dotContainer.insertAdjacentHTML('beforeend', `<button class="dots__dot" data-slide="${i}"></button>`)
+      if (i !== 0) {
+        s.style.opacity = '0'
+        setTimeout(() => {
+          s.style.opacity = '1'
+        }, 1000)
+      }
+    })
+    activeDot(0)
+    goToSlide(0)
+  }
+  initializeSlides()
+  slidePrevBtn.addEventListener('click', prevSlide)
+  slideNextBtn.addEventListener('click', nextSlide)
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') prevSlide()
+    if (e.key === 'ArrowRight') nextSlide()
+  })
+  dotContainer.addEventListener('click', e => {
+    if (e.target.classList.contains('dots__dot')) {
+      currentSlide = e.target.dataset.slide
+      goToSlide(currentSlide)
+      activeDot(currentSlide)
+    }
+  })
+}
+slider()
