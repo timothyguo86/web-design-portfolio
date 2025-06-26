@@ -15,6 +15,10 @@ const nav = document.querySelector('.nav')
 const navLinks = document.querySelector('.nav__links')
 const logo = document.querySelector('.nav__logo')
 
+const header = document.querySelector('.header')
+
+const allSections = document.querySelectorAll('.section')
+
 ///////////////////////////////////////
 // Modal window
 const openModal = e => {
@@ -38,6 +42,14 @@ document.addEventListener('keydown', e => {
     closeModal()
   }
 })
+
+// Cookie message
+const message = document.createElement('div')
+message.classList.add('cookie-message')
+message.innerHTML =
+  'We use cookies for improved functionality and analytics. <button class="btn btn--sm btn--close-cookie">Got it!</button>'
+header.append(message)
+document.querySelector('.btn--close-cookie').addEventListener('click', () => message.remove())
 
 // Smooth scrolling animation
 btnScrollTo.addEventListener('click', () => {
@@ -89,18 +101,24 @@ nav.addEventListener('mouseover', e => handleHover(e, 0.5))
 nav.addEventListener('mouseout', e => handleHover(e, 1))
 
 // Sticky navigation
-const header = document.querySelector('.header')
 const navHeight = nav.getBoundingClientRect().height
 const obsCallback = entries =>
   entries[0].isIntersecting ? nav.classList.remove('sticky') : nav.classList.add('sticky')
-const obsOptions = { root: null, threshold: 0.6, rootMargin: `-${navHeight}px` }
-const headerObserver = new IntersectionObserver(obsCallback, obsOptions)
+const navObsOptions = { root: null, threshold: 0.6, rootMargin: `-${navHeight}px` }
+const headerObserver = new IntersectionObserver(obsCallback, navObsOptions)
 headerObserver.observe(header)
 
-// Cookie message
-const message = document.createElement('div')
-message.classList.add('cookie-message')
-message.innerHTML =
-  'We use cookies for improved functionality and analytics. <button class="btn btn--sm btn--close-cookie">Got it!</button>'
-header.append(message)
-document.querySelector('.btn--close-cookie').addEventListener('click', () => message.remove())
+// Reveal sections
+const revealSection = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) return
+    entry.target.classList.remove('section--hidden')
+    observer.unobserve(entry.target)
+  })
+}
+const sectionObsOption = { root: null, threshold: 0.1 }
+const sectionObserver = new IntersectionObserver(revealSection, sectionObsOption)
+allSections.forEach(section => {
+  section.classList.add('section--hidden')
+  sectionObserver.observe(section)
+})

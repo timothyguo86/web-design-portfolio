@@ -134,6 +134,7 @@ img {
 }
 
 .highlight {
+  margin: 0 1rem;
   position: relative;
 }
 
@@ -665,13 +666,12 @@ img {
 .modal__form {
   align-items: center;
   display: grid;
-  gap: 2.5rem;
+  gap: 2rem;
   grid-template-columns: 1fr 2fr;
-  margin: 0 3rem;
 }
 
 .modal__form label {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 
@@ -717,7 +717,7 @@ img {
   font-size: 1.5rem;
   font-weight: 400;
   justify-content: space-evenly;
-  padding: 0.5rem 0;
+  padding: 5rem 0;
   position: fixed;
   width: 100%;
   z-index: 1000;
