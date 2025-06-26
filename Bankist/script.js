@@ -111,7 +111,7 @@ headerObserver.observe(header)
 // Reveal sections
 const revealSection = (entries, observer) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) return
+    if (!entry.isIntersecting) return
     entry.target.classList.remove('section--hidden')
     observer.unobserve(entry.target)
   })
