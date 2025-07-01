@@ -65,7 +65,9 @@ const modal = {
 
   init: function () {
     // Add event listeners for opening and closing modal
-    selectors.btnsOpenModal.forEach(btn => btn.addEventListener('click', this.open))
+    selectors.btnsOpenModal.forEach(btn =>
+      btn.addEventListener('click', this.open)
+    )
     selectors.btnCloseModal.addEventListener('click', this.close)
     selectors.overlay.addEventListener('click', this.close)
 
@@ -89,13 +91,15 @@ const cookieMessage = {
       'We use cookies for improved functionality and analytics. <button class="btn btn--sm btn--close-cookie">Got it!</button>'
     selectors.header.prepend(message)
 
-    // Add event listener for closing cookie message
-    document.querySelector('.btn--close-cookie').addEventListener('click', () => {
-      message.classList.add('cookie-message--fade-out')
-      setTimeout(() => {
-        message.remove()
-      }, 500)
-    })
+    // Add an event listener for a closing cookie message
+    document
+      .querySelector('.btn--close-cookie')
+      .addEventListener('click', () => {
+        message.classList.add('cookie-message--fade-out')
+        setTimeout(() => {
+          message.remove()
+        }, 500)
+      })
   }
 }
 
@@ -129,19 +133,26 @@ const tabbedComponent = {
       const clickedTab = e.target.closest('.operations__tab')
       if (!clickedTab) return
 
-      // Remove active class from all tabs
-      selectors.tabs.forEach(tab => tab.classList.remove('operations__tab--active'))
+      // Remove the active class from all tabs
+      selectors.tabs.forEach(tab =>
+        tab.classList.remove('operations__tab--active')
+      )
 
       // Add active class to clicked tab
       clickedTab.classList.add('operations__tab--active')
 
       // Fade out current content
-      const activeContent = document.querySelector('.operations__content--active')
+      const activeContent = document.querySelector(
+        '.operations__content--active'
+      )
       activeContent.classList.add('operations__content--fade-out')
 
       // Wait for animation to complete before switching content
       setTimeout(() => {
-        activeContent.classList.remove('operations__content--active', 'operations__content--fade-out')
+        activeContent.classList.remove(
+          'operations__content--active',
+          'operations__content--fade-out'
+        )
         document
           .querySelector(`.operations__content--${clickedTab.dataset.tab}`)
           .classList.add('operations__content--active')
@@ -157,7 +168,9 @@ const menuFade = {
   handleHover: function (e, opacity) {
     if (e.target.classList.contains('nav__link')) {
       const clickedLink = e.target
-      const siblings = clickedLink.closest('.nav').querySelectorAll('.nav__link')
+      const siblings = clickedLink
+        .closest('.nav')
+        .querySelectorAll('.nav__link')
 
       siblings.forEach(link => {
         if (link !== clickedLink) link.style.opacity = opacity
@@ -181,7 +194,9 @@ const stickyNav = {
     const navHeight = selectors.nav.getBoundingClientRect().height
 
     const obsCallback = entries =>
-      entries[0].isIntersecting ? selectors.nav.classList.remove('sticky') : selectors.nav.classList.add('sticky')
+      entries[0].isIntersecting
+        ? selectors.nav.classList.remove('sticky')
+        : selectors.nav.classList.add('sticky')
 
     const navObsOptions = {
       root: null,
@@ -208,7 +223,10 @@ const sectionReveal = {
     }
 
     const sectionObsOptions = { root: null, threshold: 0.1 }
-    const sectionObserver = new IntersectionObserver(revealSection, sectionObsOptions)
+    const sectionObserver = new IntersectionObserver(
+      revealSection,
+      sectionObsOptions
+    )
 
     selectors.allSections.forEach(section => {
       section.classList.add('section--hidden')
@@ -261,7 +279,10 @@ const slider = {
     // Create dots for slider
     const createDots = () => {
       selectors.slides.forEach((_, i) => {
-        selectors.dotContainer.insertAdjacentHTML('beforeend', `<button class="dots__dot" data-slide="${i}"></button>`)
+        selectors.dotContainer.insertAdjacentHTML(
+          'beforeend',
+          `<button class="dots__dot" data-slide="${i}"></button>`
+        )
       })
     }
 
@@ -271,7 +292,9 @@ const slider = {
         dot.classList.remove('dots__dot--active')
       })
 
-      document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add('dots__dot--active')
+      document
+        .querySelector(`.dots__dot[data-slide="${slide}"]`)
+        .classList.add('dots__dot--active')
     }
 
     // Move slides to position
@@ -281,16 +304,18 @@ const slider = {
       })
     }
 
-    // Go to previous slide
+    // Go to the previous slide
     const prevSlide = () => {
-      this.currentSlide = this.currentSlide === 0 ? maxSlide - 1 : this.currentSlide - 1
+      this.currentSlide =
+        this.currentSlide === 0 ? maxSlide - 1 : this.currentSlide - 1
       goToSlide(this.currentSlide)
       activateDot(this.currentSlide)
     }
 
-    // Go to next slide
+    // Go to the next slide
     const nextSlide = () => {
-      this.currentSlide = this.currentSlide === maxSlide - 1 ? 0 : this.currentSlide + 1
+      this.currentSlide =
+        this.currentSlide === maxSlide - 1 ? 0 : this.currentSlide + 1
       goToSlide(this.currentSlide)
       activateDot(this.currentSlide)
     }

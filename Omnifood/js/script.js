@@ -82,7 +82,9 @@ const stickyNavigation = {
   init: function () {
     const navObserver = new IntersectionObserver(
       entries => {
-        entries[0].isIntersecting ? document.body.classList.remove('sticky') : document.body.classList.add('sticky')
+        entries[0].isIntersecting
+          ? document.body.classList.remove('sticky')
+          : document.body.classList.add('sticky')
       },
       {
         root: null,

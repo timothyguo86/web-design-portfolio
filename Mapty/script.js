@@ -72,9 +72,12 @@ class App {
 
   _getPosition() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this._loadMap.bind(this), error => {
-        alert('Could not get your location')
-      })
+      navigator.geolocation.getCurrentPosition(
+        this._loadMap.bind(this),
+        error => {
+          alert('Could not get your location')
+        }
+      )
     }
   }
 
@@ -85,7 +88,8 @@ class App {
     this._map = L.map('map').setView(cords, 13)
 
     L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this._map)
 
     this._map.on('click', this._showForm.bind(this))
@@ -137,9 +141,17 @@ class App {
       className: `${type}-popup`
     }
 
-    inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value = ''
+    inputDistance.value =
+      inputDuration.value =
+      inputCadence.value =
+      inputElevation.value =
+        ''
 
-    L.marker([lat, lng]).addTo(this._map).bindPopup(L.popup(popupProperties)).setPopupContent(type).openPopup()
+    L.marker([lat, lng])
+      .addTo(this._map)
+      .bindPopup(L.popup(popupProperties))
+      .setPopupContent(type)
+      .openPopup()
 
     this._renderWorkout(workout)
   }
