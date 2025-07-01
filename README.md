@@ -11,6 +11,7 @@ maintain design systems.
 | 01 | [Omnifood](https://github.com/timothyguo86/web-design-portfolio/tree/main/Omnifood) | [Live Demo](https://timothyguo86.github.io/web-design-portfolio/Omnifood/) |
 | 02 | [TMDB Angular](https://github.com/timothyguo86/tmdb-angular)                        | [Live Demo](https://timothyguo86.github.io/tmdb-angular/)                  |
 | 03 | [Bankist](https://github.com/timothyguo86/web-design-portfolio/tree/main/Bankist)   | [Live Demo](https://timothyguo86.github.io/web-design-portfolio/Bankist/)  |
+| 04 | [Mapty](https://github.com/timothyguo86/web-design-portfolio/tree/main/Mapty)       | [Live Demo](https://timothyguo86.github.io/web-design-portfolio/Mapty/)    |
 
 ## Contributing
 
