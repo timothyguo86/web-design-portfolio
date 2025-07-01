@@ -36,7 +36,7 @@ class Running extends Workout {
   }
 
   calcPace() {
-    this.pace = this.distance / this.duration
+    this.pace = this.duration / this.distance
     return this.pace
   }
 }
@@ -216,7 +216,7 @@ class App {
         </div>
         <div class="workout__details">
           <span class="workout__icon">⛰</span>
-          <span class="workout__value">${workout.elevationGain}</span>
+          <span class="workout__value">${workout.elevation}</span>
           <span class="workout__unit">m</span>
         </div>
       </li>
@@ -249,6 +249,11 @@ class App {
     this._workouts.forEach(w => {
       this._renderWorkout(w)
     })
+  }
+
+  reset() {
+    localStorage.removeItem('workouts')
+    location.reload()
   }
 }
 
