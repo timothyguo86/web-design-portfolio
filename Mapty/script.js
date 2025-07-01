@@ -131,29 +131,31 @@ class App {
       workout = new Cycling([lat, lng], distance, duration, elevation)
     }
 
+    this._renderWorkoutMarker(workout)
+    this._renderWorkout(workout)
     this._workouts.push(workout)
-
-    const popupProperties = {
-      autoClose: false,
-      maxWidth: 250,
-      minWidth: 100,
-      closeOnClick: false,
-      className: `${type}-popup`
-    }
 
     inputDistance.value =
       inputDuration.value =
       inputCadence.value =
       inputElevation.value =
         ''
+  }
 
-    L.marker([lat, lng])
+  _renderWorkoutMarker(workout) {
+    const popupProperties = {
+      autoClose: false,
+      maxWidth: 250,
+      minWidth: 100,
+      closeOnClick: false,
+      className: `${workout.type}-popup`
+    }
+
+    L.marker(workout.corrds)
       .addTo(this._map)
       .bindPopup(L.popup(popupProperties))
-      .setPopupContent(type)
+      .setPopupContent(workout.type)
       .openPopup()
-
-    this._renderWorkout(workout)
   }
 
   _renderWorkout(workout) {
