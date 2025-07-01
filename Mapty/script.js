@@ -1,13 +1,51 @@
+/**
+ * Mapty - Workout Tracking Application
+ *
+ * This application allows users to track their workouts (running and cycling) on an interactive map.
+ * Users can click on the map to add a new workout, specifying the type, distance, duration, and
+ * additional metrics specific to the workout type.
+ *
+ * Key Features:
+ * - Geolocation to display the user's current location on the map
+ * - Interactive map using the Leaflet library
+ * - Ability to add two types of workouts: running and cycling
+ * - Form validation for workout inputs
+ * - Display of workouts in a list and on the map
+ * - Ability to click on a workout to center the map on its location
+ * - Local storage to persist workout data
+ *
+ * Architecture:
+ * - Workout: Base class for all workout types
+ *   - Running: Extends Workout with running-specific properties (cadence, pace)
+ *   - Cycling: Extends Workout with cycling-specific properties (elevation gain, speed)
+ * - App: Main application class that handles UI, map interactions, and data management
+ *
+ * Usage:
+ * - The app automatically loads the map centered on the user's location
+ * - Click anywhere on the map to add a new workout
+ * - Fill in the form with workout details and submit
+ * - Click on a workout in the list to center the map on that location
+ * - Workouts are automatically saved to local storage
+ * - Call app.reset() in the console to clear all saved workouts
+ */
+
 'use strict'
 
-const form = document.querySelector('.form')
-const containerWorkouts = document.querySelector('.workouts')
-const inputType = document.querySelector('.form__input--type')
-const inputDistance = document.querySelector('.form__input--distance')
-const inputDuration = document.querySelector('.form__input--duration')
-const inputCadence = document.querySelector('.form__input--cadence')
-const inputElevation = document.querySelector('.form__input--elevation')
+// DOM Element Selectors
+const selectors = {
+  form: document.querySelector('.form'),
+  containerWorkouts: document.querySelector('.workouts'),
+  inputType: document.querySelector('.form__input--type'),
+  inputDistance: document.querySelector('.form__input--distance'),
+  inputDuration: document.querySelector('.form__input--duration'),
+  inputCadence: document.querySelector('.form__input--cadence'),
+  inputElevation: document.querySelector('.form__input--elevation')
+}
 
+/**
+ * Workout Base Class
+ * Parent class for all workout types with common properties and methods
+ */
 class Workout {
   date = new Date()
   id = uuidv4()
@@ -18,6 +56,11 @@ class Workout {
     this.duration = duration
   }
 
+  /**
+   * Sets the description for the workout
+   * Creates a human-readable description based on workout type and date
+   * @private
+   */
   _setDescription() {
     // prettier-ignore
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -25,6 +68,10 @@ class Workout {
   }
 }
 
+/**
+ * Running Workout Class
+ * Extends the base Workout class with running-specific properties and methods
+ */
 class Running extends Workout {
   type = 'running'
 
@@ -35,12 +82,20 @@ class Running extends Workout {
     this._setDescription()
   }
 
+  /**
+   * Calculates the pace (min/km) for the running workout
+   * @returns {number} The calculated pace
+   */
   calcPace() {
     this.pace = this.duration / this.distance
     return this.pace
   }
 }
 
+/**
+ * Cycling Workout Class
+ * Extends the base Workout class with cycling-specific properties and methods
+ */
 class Cycling extends Workout {
   type = 'cycling'
 
@@ -51,14 +106,23 @@ class Cycling extends Workout {
     this._setDescription()
   }
 
+  /**
+   * Calculates the speed (km/h) for the cycling workout
+   * @returns {number} The calculated speed
+   */
   calcSpeed() {
     this.speed = this.distance / (this.duration / 60)
     return this.speed
   }
 }
 
-////////////////////////////////////
-// Application Architecture
+/**
+ * Application Architecture
+ * Main class that handles the application's functionality including:
+ * - Map initialization and interaction
+ * - Form handling for new workouts
+ * - Workout rendering and storage
+ */
 class App {
   _map
   _mapZoomLevel = 13
@@ -68,11 +132,15 @@ class App {
   constructor() {
     this._getPosition()
     this._getLocalStorage()
-    form.addEventListener('submit', this._newWorkout.bind(this))
-    inputType.addEventListener('change', this._toggleElevationField.bind(this))
-    containerWorkouts.addEventListener('click', this._moveToPopup.bind(this))
+    selectors.form.addEventListener('submit', this._newWorkout.bind(this))
+    selectors.inputType.addEventListener('change', this._toggleElevationField.bind(this))
+    selectors.containerWorkouts.addEventListener('click', this._moveToPopup.bind(this))
   }
 
+  /**
+   * Gets the user's current position using the Geolocation API
+   * @private
+   */
   _getPosition() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -84,6 +152,11 @@ class App {
     }
   }
 
+  /**
+   * Loads the map centered on the user's position
+   * @param {GeolocationPosition} position - The user's geolocation position
+   * @private
+   */
   _loadMap(position) {
     const { latitude, longitude } = position.coords
     const cords = [latitude, longitude]
@@ -99,50 +172,68 @@ class App {
     this._workouts.forEach(w => this._renderWorkoutMarker(w))
   }
 
+  /**
+   * Shows the workout form when the map is clicked
+   * @param {Event} mapE - The map click event
+   * @private
+   */
   _showForm(mapE) {
     this._mapEvent = mapE
-    form.classList.remove('hidden')
-    inputDistance.focus()
+    selectors.form.classList.remove('hidden')
+    selectors.inputDistance.focus()
   }
 
+  /**
+   * Hides the workout form after submission
+   * @private
+   */
   _hideForm() {
-    inputDistance.value =
-      inputDuration.value =
-      inputCadence.value =
-      inputElevation.value =
+    selectors.inputDistance.value =
+      selectors.inputDuration.value =
+      selectors.inputCadence.value =
+      selectors.inputElevation.value =
         ''
 
-    form.style.display = 'none'
-    form.classList.add('hidden')
+    selectors.form.style.display = 'none'
+    selectors.form.classList.add('hidden')
     setTimeout(() => {
-      form.style.display = 'grid'
+      selectors.form.style.display = 'grid'
     }, 1000) // Same duration as the .hidden animation duration
   }
 
+  /**
+   * Toggles between elevation and cadence input fields based on workout type
+   * @private
+   */
   _toggleElevationField() {
-    inputElevation.closest('.form__row').classList.toggle('form__row--hidden')
-    inputCadence.closest('.form__row').classList.toggle('form__row--hidden')
+    selectors.inputElevation.closest('.form__row').classList.toggle('form__row--hidden')
+    selectors.inputCadence.closest('.form__row').classList.toggle('form__row--hidden')
   }
 
+  /**
+   * Creates a new workout based on form input
+   * @param {Event} e - The form submit event
+   * @private
+   */
   _newWorkout(e) {
     e.preventDefault()
 
-    const type = inputType.value
-    const distance = inputDistance.value
-    const duration = inputDuration.value
+    const type = selectors.inputType.value
+    const distance = +selectors.inputDistance.value
+    const duration = +selectors.inputDuration.value
     const validInput = (...inputs) => inputs.every(input => input > 0)
     const { lat, lng } = this._mapEvent.latlng
 
     let workout
 
     if (type === 'running') {
-      const cadence = +inputCadence.value
+      const cadence = +selectors.inputCadence.value
       if (!validInput(distance, duration, cadence))
         return alert('Distance, duration and cadence must be greater than 0')
 
       workout = new Running([lat, lng], distance, duration, cadence)
     } else if (type === 'cycling') {
-      const elevation = +inputElevation.value
+      const elevation = +selectors.inputElevation.value
       if (!validInput(distance, duration, elevation))
         return alert('Distance, duration and elevation must be greater than 0')
 
@@ -156,6 +247,11 @@ class App {
     this._setLocalStorage()
   }
 
+  /**
+   * Renders a marker on the map for a workout
+   * @param {Workout} workout - The workout to render a marker for
+   * @private
+   */
   _renderWorkoutMarker(workout) {
     const popupProperties = {
       autoClose: false,
@@ -174,6 +270,11 @@ class App {
       .openPopup()
   }
 
+  /**
+   * Renders a workout in the workout list
+   * @param {Workout} workout - The workout to render
+   * @private
+   */
   _renderWorkout(workout) {
     let html = `
       <li class="workout workout--${workout.type}" data-id="${workout.id}">
@@ -222,9 +323,14 @@ class App {
       </li>
       `
 
-    containerWorkouts.insertAdjacentHTML('beforeend', html)
+    selectors.containerWorkouts.insertAdjacentHTML('beforeend', html)
   }
 
+  /**
+   * Moves the map view to the clicked workout
+   * @param {Event} e - The click event
+   * @private
+   */
   _moveToPopup(e) {
     const workoutEl = e.target.closest('.workout')
     if (!workoutEl) return
@@ -235,10 +341,18 @@ class App {
     })
   }
 
+  /**
+   * Saves workouts to local storage
+   * @private
+   */
   _setLocalStorage() {
     localStorage.setItem('workouts', JSON.stringify(this._workouts))
   }
 
+  /**
+   * Loads workouts from local storage
+   * @private
+   */
   _getLocalStorage() {
     const data = JSON.parse(localStorage.getItem('workouts'))
 
@@ -251,10 +365,15 @@ class App {
     })
   }
 
+  /**
+   * Resets the application by clearing local storage and reloading the page
+   * Can be called from the console with app.reset()
+   */
   reset() {
     localStorage.removeItem('workouts')
     location.reload()
   }
 }
 
+// Initialize the application
 const app = new App()
