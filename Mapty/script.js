@@ -133,8 +133,14 @@ class App {
     this._getPosition()
     this._getLocalStorage()
     selectors.form.addEventListener('submit', this._newWorkout.bind(this))
-    selectors.inputType.addEventListener('change', this._toggleElevationField.bind(this))
-    selectors.containerWorkouts.addEventListener('click', this._moveToPopup.bind(this))
+    selectors.inputType.addEventListener(
+      'change',
+      this._toggleElevationField.bind(this)
+    )
+    selectors.containerWorkouts.addEventListener(
+      'click',
+      this._moveToPopup.bind(this)
+    )
   }
 
   /**
@@ -206,8 +212,12 @@ class App {
    * @private
    */
   _toggleElevationField() {
-    selectors.inputElevation.closest('.form__row').classList.toggle('form__row--hidden')
-    selectors.inputCadence.closest('.form__row').classList.toggle('form__row--hidden')
+    selectors.inputElevation
+      .closest('.form__row')
+      .classList.toggle('form__row--hidden')
+    selectors.inputCadence
+      .closest('.form__row')
+      .classList.toggle('form__row--hidden')
   }
 
   /**
