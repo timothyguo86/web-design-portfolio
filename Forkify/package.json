@@ -1,0 +1,16 @@
+{
+	"name": "forkify",
+	"version": "1.0.0",
+	"description": "Recipe application",
+	"license": "MIT",
+	"author": "Yuxin Guo",
+	"type": "commonjs",
+	"scripts": {
+		"start": "parcel index.html",
+		"build": "parcel build index.html"
+	},
+	"devDependencies": {
+		"@parcel/transformer-sass": "^2.15.4",
+		"parcel": "^2.15.4"
+	}
+}
