@@ -1,9 +1,9 @@
 @use 'base';
 
 .search-results {
-  padding: 3rem 0;
   display: flex;
   flex-direction: column;
+  padding: 3rem 0;
 }
 
 .results {
@@ -16,9 +16,9 @@
   padding: 0 3.5rem;
 
   &::after {
+    clear: both;
     content: '';
     display: table;
-    clear: both;
   }
 
   &__btn {
@@ -35,8 +35,8 @@
 .copyright {
   color: base.$color-grey-dark-2;
   font-size: 1.2rem;
-  padding: 0 3.5rem;
   margin-top: 4rem;
+  padding: 0 3.5rem;
 
   .github-link:link,
   .github-link:visited {

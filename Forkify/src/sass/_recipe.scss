@@ -12,51 +12,51 @@
     transform-origin: top;
 
     &::before {
-      content: '';
-      display: block;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
       background-image: linear-gradient(
         to right bottom,
         base.$color-grad-1,
         base.$color-grad-2
       );
+      content: '';
+      display: block;
+      height: 100%;
+      left: 0;
       opacity: 0.6;
+      position: absolute;
+      top: 0;
+      width: 100%;
     }
   }
 
   &__img {
-    width: 100%;
     display: block;
     height: 100%;
     object-fit: cover;
+    width: 100%;
   }
 
   &__title {
-    position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 20%) skewY(-6deg);
     color: #fff;
-    font-weight: 700;
     font-size: 3.25rem;
-    text-transform: uppercase;
-    width: 50%;
+    font-weight: 700;
+    left: 50%;
     line-height: 1.95;
+    position: absolute;
     text-align: center;
+    text-transform: uppercase;
+    transform: translate(-50%, 20%) skewY(-6deg);
+    width: 50%;
 
     span {
-      -webkit-box-decoration-break: clone;
-      box-decoration-break: clone;
-      padding: 1.3rem 2rem;
       background-image: linear-gradient(
         to right bottom,
         base.$color-grad-1,
         base.$color-grad-2
       );
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      padding: 1.3rem 2rem;
     }
 
     @media only screen and (max-width: base.$bp-medium) {
@@ -67,16 +67,16 @@
   ///////////
   // DETAILS
   &__details {
-    display: flex;
     align-items: center;
+    display: flex;
     padding: 7.5rem 8rem 3.5rem 8rem;
   }
 
   &__info {
+    align-items: center;
+    display: flex;
     font-size: 1.65rem;
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
 
     &:not(:last-child) {
       margin-right: 4.5rem;
@@ -84,15 +84,15 @@
   }
 
   &__info-icon {
-    height: 2.35rem;
-    width: 2.35rem;
     fill: base.$color-primary;
+    height: 2.35rem;
     margin-right: 1.15rem;
+    width: 2.35rem;
   }
 
   &__info-data {
-    margin-right: 0.5rem;
     font-weight: 700;
+    margin-right: 0.5rem;
   }
 
   &__info-buttons {
@@ -102,41 +102,39 @@
   }
 
   &__user-generated {
-    background-color: color.adjust(base.$color-grey-light-2, $lightness: -2%);
-
-    display: flex;
     align-items: center;
-    justify-content: center;
-    height: 4rem;
-    width: 4rem;
+    background-color: color.adjust(base.$color-grey-light-2, $lightness: -2%);
     border-radius: 10rem;
-
+    display: flex;
+    height: 4rem;
+    justify-content: center;
     margin-left: auto;
     margin-right: 1.75rem;
+    width: 4rem;
 
     svg {
+      fill: base.$color-primary;
       height: 2.25rem;
       width: 2.25rem;
-      fill: base.$color-primary;
     }
   }
 
   ///////////
   // INGREDIENTS
   &__ingredients {
-    padding: 5rem 8rem;
-    font-size: 1.6rem;
-    line-height: 1.4;
+    align-items: center;
     background-color: base.$color-grey-light-2;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    padding: 5rem 8rem;
   }
 
   &__ingredient-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 2.5rem 3rem;
+    grid-template-columns: 1fr 1fr;
     list-style: none;
   }
 
@@ -145,33 +143,33 @@
   }
 
   &__icon {
-    height: 2rem;
-    width: 2rem;
     fill: base.$color-primary;
-    margin-right: 1.1rem;
     flex: 0 0 auto;
+    height: 2rem;
+    margin-right: 1.1rem;
     margin-top: 0.1rem;
+    width: 2rem;
   }
 
   &__quantity {
-    margin-right: 0.5rem;
     flex: 0 0 auto;
+    margin-right: 0.5rem;
   }
 
   ///////////
   // DIRECTIONS
   &__directions {
-    padding: 5rem 10rem;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 5rem 10rem;
   }
 
   &__directions-text {
-    font-size: 1.7rem;
-    text-align: center;
-    margin-bottom: 3.5rem;
     color: base.$color-grey-dark-2;
+    font-size: 1.7rem;
+    margin-bottom: 3.5rem;
+    text-align: center;
   }
 
   &__publisher {
