@@ -144,94 +144,88 @@ Pasta with Tomato Cream ...
           <p>Start by searching for a recipe or an ingredient. Have fun!</p>
         </div>
 
-        <!-- <div class="spinner">
-<svg>
-<use href="src/img/icons.svg#icon-loader"></use>
-</svg>
-</div> -->
+        <!--		<div class="error">-->
+        <!--			<div>-->
+        <!--				<svg>-->
+        <!--					<use href="src/img/icons.svg#icon-alert-triangle"></use>-->
+        <!--				</svg>-->
+        <!--			</div>-->
+        <!--			<p>No recipes found for your query. Please try again!</p>-->
+        <!--		</div>-->
+      </div>
 
-        <!-- <div class="error">
-<div>
-<svg>
-<use href="src/img/icons.svg#icon-alert-triangle"></use>
-</svg>
-</div>
-<p>No recipes found for your query. Please try again!</p>
-</div> -->
+      <div class="overlay hidden"></div>
+      <div class="add-recipe-window hidden">
+        <button class="btn--close-modal">&times;</button>
+        <form class="upload">
+          <div class="upload__column">
+            <h3 class="upload__heading">Recipe data</h3>
+            <label>Title</label>
+            <input name="title" required type="text" value="TEST" />
+            <label>URL</label>
+            <input name="sourceUrl" required type="text" value="TEST" />
+            <label>Image URL</label>
+            <input name="image" required type="text" value="TEST" />
+            <label>Publisher</label>
+            <input name="publisher" required type="text" value="TEST" />
+            <label>Prep time</label>
+            <input name="cookingTime" required type="number" value="23" />
+            <label>Servings</label>
+            <input name="servings" required type="number" value="23" />
+          </div>
 
+          <div class="upload__column">
+            <h3 class="upload__heading">Ingredients</h3>
+            <label>Ingredient 1</label>
+            <input
+              name="ingredient-1"
+              placeholder="Format: 'Quantity,Unit,Description'"
+              required
+              type="text"
+              value="0.5,kg,Rice"
+            />
+            <label>Ingredient 2</label>
+            <input
+              name="ingredient-2"
+              placeholder="Format: 'Quantity,Unit,Description'"
+              type="text"
+              value="1,,Avocado"
+            />
+            <label>Ingredient 3</label>
+            <input
+              name="ingredient-3"
+              placeholder="Format: 'Quantity,Unit,Description'"
+              type="text"
+              value=",,salt"
+            />
+            <label>Ingredient 4</label>
+            <input
+              name="ingredient-4"
+              placeholder="Format: 'Quantity,Unit,Description'"
+              type="text"
+            />
+            <label>Ingredient 5</label>
+            <input
+              name="ingredient-5"
+              placeholder="Format: 'Quantity,Unit,Description'"
+              type="text"
+            />
+            <label>Ingredient 6</label>
+            <input
+              name="ingredient-6"
+              placeholder="Format: 'Quantity,Unit,Description'"
+              type="text"
+            />
+          </div>
 
-
-    <div class="overlay hidden"></div>
-    <div class="add-recipe-window hidden">
-      <button class="btn--close-modal">&times;</button>
-      <form class="upload">
-        <div class="upload__column">
-          <h3 class="upload__heading">Recipe data</h3>
-          <label>Title</label>
-          <input name="title" required type="text" value="TEST" />
-          <label>URL</label>
-          <input name="sourceUrl" required type="text" value="TEST" />
-          <label>Image URL</label>
-          <input name="image" required type="text" value="TEST" />
-          <label>Publisher</label>
-          <input name="publisher" required type="text" value="TEST" />
-          <label>Prep time</label>
-          <input name="cookingTime" required type="number" value="23" />
-          <label>Servings</label>
-          <input name="servings" required type="number" value="23" />
-        </div>
-
-        <div class="upload__column">
-          <h3 class="upload__heading">Ingredients</h3>
-          <label>Ingredient 1</label>
-          <input
-            name="ingredient-1"
-            placeholder="Format: 'Quantity,Unit,Description'"
-            required
-            type="text"
-            value="0.5,kg,Rice"
-          />
-          <label>Ingredient 2</label>
-          <input
-            name="ingredient-2"
-            placeholder="Format: 'Quantity,Unit,Description'"
-            type="text"
-            value="1,,Avocado"
-          />
-          <label>Ingredient 3</label>
-          <input
-            name="ingredient-3"
-            placeholder="Format: 'Quantity,Unit,Description'"
-            type="text"
-            value=",,salt"
-          />
-          <label>Ingredient 4</label>
-          <input
-            name="ingredient-4"
-            placeholder="Format: 'Quantity,Unit,Description'"
-            type="text"
-          />
-          <label>Ingredient 5</label>
-          <input
-            name="ingredient-5"
-            placeholder="Format: 'Quantity,Unit,Description'"
-            type="text"
-          />
-          <label>Ingredient 6</label>
-          <input
-            name="ingredient-6"
-            placeholder="Format: 'Quantity,Unit,Description'"
-            type="text"
-          />
-        </div>
-
-        <button class="btn upload__btn">
-          <svg>
-            <use href="src/img/icons.svg#icon-upload-cloud"></use>
-          </svg>
-          <span>Upload</span>
-        </button>
-      </form>
+          <button class="btn upload__btn">
+            <svg>
+              <use href="src/img/icons.svg#icon-upload-cloud"></use>
+            </svg>
+            <span>Upload</span>
+          </button>
+        </form>
+      </div>
     </div>
   </body>
 </html>

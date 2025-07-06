@@ -1,4 +1,9 @@
 import icons from 'url:../img/icons.svg'
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
+
+const API_URL = 'https://forkify-api.jonas.io/api/v2/recipes/'
+const recipeId = '5ed6604591c37cdc054bc886'
 
 const recipeContainer = document.querySelector('.recipe')
 
@@ -10,14 +15,22 @@ const timeout = function (s) {
   })
 }
 
-const API_URL = 'https://forkify-api.jonas.io/api/v2/recipes/'
-// const API_KEY = '3da353f6-26fe-406b-905a-eca27c3866fa'
-const recipeId = '5ed6604591c37cdc054bc886'
-console.log(icons)
+const renderSpinner = parentEl => {
+  const spinner = `
+        <div class="spinner">
+        <svg>
+					<use href="${icons}#icon-loader"></use>
+				</svg>
+			</div>
+		`
+  parentEl.innerHTML = ''
+  parentEl.insertAdjacentHTML('afterbegin', spinner)
+}
 
 const showRecipe = async () => {
   try {
     // 1) Loading recipe
+    renderSpinner(recipeContainer)
     const res = await fetch(`${API_URL}${recipeId}`)
     const data = await res.json()
 
