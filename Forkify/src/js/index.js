@@ -3,7 +3,6 @@ import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 
 const API_URL = 'https://forkify-api.jonas.io/api/v2/recipes/'
-const recipeId = '5ed6604591c37cdc054bc886'
 
 const recipeContainer = document.querySelector('.recipe')
 
@@ -29,6 +28,9 @@ const renderSpinner = parentEl => {
 
 const showRecipe = async () => {
   try {
+    const recipeId = window.location.hash.slice(1)
+    if (!recipeId) return
+
     // 1) Loading recipe
     renderSpinner(recipeContainer)
     const res = await fetch(`${API_URL}${recipeId}`)
@@ -37,6 +39,7 @@ const showRecipe = async () => {
     if (!res.ok) throw new Error(`${data.message} (${res.status})`)
 
     let { recipe } = data.data
+
     recipe = {
       id: recipe.id,
       title: recipe.title,
@@ -148,3 +151,6 @@ const showRecipe = async () => {
 }
 
 showRecipe()
+
+window.addEventListener('hashchange', showRecipe)
+window.addEventListener('load', showRecipe)
