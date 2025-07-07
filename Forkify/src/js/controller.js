@@ -5,8 +5,6 @@ import 'regenerator-runtime/runtime'
 import * as model from './model.js'
 import recipeView from './views/recipeView'
 
-const recipeContainer = document.querySelector('.recipe')
-
 const timeout = function (s) {
   return new Promise(function (_, reject) {
     setTimeout(function () {
@@ -29,7 +27,7 @@ const controlRecipes = async () => {
     // 2) Rendering recipe
     recipeView.render(model.state.recipe)
   } catch (err) {
-    alert(err)
+    console.error(err)
   }
 }
 
