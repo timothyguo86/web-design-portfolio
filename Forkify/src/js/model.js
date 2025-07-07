@@ -1,5 +1,5 @@
 export const state = {
-  recipes: {}
+  recipe: {}
 }
 
 export const loadRecipes = async id => {
@@ -11,7 +11,7 @@ export const loadRecipes = async id => {
 
     const { recipe } = data.data
 
-    state.recipes = {
+    state.recipe = {
       id: recipe.id,
       title: recipe.title,
       publisher: recipe.publisher,
@@ -25,5 +25,3 @@ export const loadRecipes = async id => {
     alert(err)
   }
 }
-
-console.log('test')
