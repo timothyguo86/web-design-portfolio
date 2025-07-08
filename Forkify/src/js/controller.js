@@ -4,6 +4,7 @@ import 'regenerator-runtime/runtime'
 // local imports
 import * as model from './model.js'
 import recipeView from './views/recipeView'
+import searchView from './views/searchView'
 
 const controlRecipes = async () => {
   try {
@@ -25,17 +26,19 @@ const controlRecipes = async () => {
 
 const controlSearchResults = async () => {
   try {
-    await model.loadSearchResults('pizza')
+    const query = searchView.getQuery()
+    if (!query) return
+
+    await model.loadSearchResults(query)
     console.log(model.state.search.results)
   } catch (err) {
     console.log(err)
   }
 }
 
-controlSearchResults()
-
 const init = () => {
-  recipeView.addRecipeRenderListeners(controlRecipes)
+  recipeView.addHandlerRender(controlRecipes)
+  searchView.addHandlerSearch(controlSearchResults)
 }
 
 init()
