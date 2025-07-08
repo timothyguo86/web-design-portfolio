@@ -23,6 +23,17 @@ const controlRecipes = async () => {
   }
 }
 
+const controlSearchResults = async () => {
+  try {
+    await model.loadSearchResults('pizza')
+    console.log(model.state.search.results)
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+controlSearchResults()
+
 const init = () => {
   recipeView.addRecipeRenderListeners(controlRecipes)
 }
