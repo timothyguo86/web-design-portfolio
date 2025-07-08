@@ -9,6 +9,9 @@ const EVENTS = Object.freeze({
 export class RecipeView {
   _parentElement = document.querySelector('.recipe')
   _data
+  _errorMessage =
+    'We could not find the recipe you are looking for. Please try again.'
+  _message = ''
 
   render(data) {
     this._data = data
@@ -18,7 +21,7 @@ export class RecipeView {
     this._parentElement.insertAdjacentHTML('afterbegin', markup)
   }
 
-  renderSpinner = () => {
+  renderSpinner() {
     const spinner = `
         <div class="spinner">
         <svg>
@@ -26,8 +29,38 @@ export class RecipeView {
 				</svg>
 			</div>
 		`
-    this._parentElement.innerHTML = ''
+    this._clear()
     this._parentElement.insertAdjacentHTML('afterbegin', spinner)
+  }
+
+  renderMessage(message = this._message) {
+    const markup = `
+        <div class="message">
+          <div>
+            <svg>
+              <use href="src/img/icons.svg#icon-smile"></use>
+            </svg>
+          </div>
+          <p>${message}</p>
+        </div>
+			`
+    this._clear()
+    this._parentElement.insertAdjacentHTML('afterbegin', markup)
+  }
+
+  renderError(message = this._errorMessage) {
+    const markup = `
+        <div class="error">
+					<div>
+						<svg>
+							<use href="${icons}#icon-alert-triangle"></use>
+						</svg>
+					</div>
+					<p>${message}</p>
+        </div>
+			`
+    this._clear()
+    this._parentElement.insertAdjacentHTML('afterbegin', markup)
   }
 
   addRecipeRenderListeners(
