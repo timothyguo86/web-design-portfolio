@@ -1,6 +1,11 @@
 // local imports
 import icons from 'url:../../img/icons.svg'
 
+const EVENTS = Object.freeze({
+  HASH_CHANGE: 'hashchange',
+  LOAD: 'load'
+})
+
 export class RecipeView {
   _parentElement = document.querySelector('.recipe')
   _data
@@ -13,10 +18,6 @@ export class RecipeView {
     this._parentElement.insertAdjacentHTML('afterbegin', markup)
   }
 
-  _clear() {
-    this._parentElement.innerHTML = ''
-  }
-
   renderSpinner = () => {
     const spinner = `
         <div class="spinner">
@@ -27,6 +28,15 @@ export class RecipeView {
 		`
     this._parentElement.innerHTML = ''
     this._parentElement.insertAdjacentHTML('afterbegin', spinner)
+  }
+
+  addRecipeRenderListeners(
+    handler,
+    events = [EVENTS.HASH_CHANGE, EVENTS.LOAD]
+  ) {
+    events.forEach(event => {
+      window.addEventListener(event, handler)
+    })
   }
 
   _generateMarkup() {
@@ -120,6 +130,10 @@ export class RecipeView {
 				</a>
 			</div>
     `
+  }
+
+  _clear() {
+    this._parentElement.innerHTML = ''
   }
 }
 
