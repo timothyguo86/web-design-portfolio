@@ -5,6 +5,11 @@ import 'regenerator-runtime/runtime'
 import * as model from './model.js'
 import recipeView from './views/recipeView'
 import searchView from './views/searchView'
+import resultsView from './views/resultsView'
+
+if (module.hot) {
+  module.hot.accept()
+}
 
 const controlRecipes = async () => {
   try {
@@ -26,13 +31,18 @@ const controlRecipes = async () => {
 
 const controlSearchResults = async () => {
   try {
+    resultsView.renderSpinner()
+    // 1) Get a search query
     const query = searchView.getQuery()
     if (!query) return
 
+    // 2) Load search results
     await model.loadSearchResults(query)
-    console.log(model.state.search.results)
+
+    // 3) Render results
+    resultsView.render(model.state.search.results)
   } catch (err) {
-    console.log(err)
+    resultsView.renderError()
   }
 }
 
