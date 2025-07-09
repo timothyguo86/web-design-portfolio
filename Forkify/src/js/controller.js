@@ -7,10 +7,6 @@ import recipeView from './views/recipeView'
 import searchView from './views/searchView'
 import resultsView from './views/resultsView'
 
-if (module.hot) {
-  module.hot.accept()
-}
-
 const controlRecipes = async () => {
   try {
     const recipeId = window.location.hash.slice(1)
@@ -40,7 +36,7 @@ const controlSearchResults = async () => {
     await model.loadSearchResults(query)
 
     // 3) Render results
-    resultsView.render(model.state.search.results)
+    resultsView.render(model.getSearchResultPage())
   } catch (err) {
     resultsView.renderError()
   }
