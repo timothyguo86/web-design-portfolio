@@ -47,7 +47,7 @@
       width: auto;
 
       &::placeholder {
-        color: white;
+        color: base.$color-grey-light-3;
       }
     }
   }
