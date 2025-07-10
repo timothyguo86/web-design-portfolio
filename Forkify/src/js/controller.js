@@ -6,6 +6,7 @@ import * as model from './model.js'
 import recipeView from './views/recipeView'
 import searchView from './views/searchView'
 import resultsView from './views/resultsView'
+import paginationView from './views/paginationView'
 
 const controlRecipes = async () => {
   try {
@@ -36,7 +37,10 @@ const controlSearchResults = async () => {
     await model.loadSearchResults(query)
 
     // 3) Render results
-    resultsView.render(model.getSearchResultPage())
+    resultsView.render(model.getSearchResultPage(6))
+
+    // 4) Render the initial pagination buttons
+    paginationView.render(model.state.search)
   } catch (err) {
     resultsView.renderError()
   }
