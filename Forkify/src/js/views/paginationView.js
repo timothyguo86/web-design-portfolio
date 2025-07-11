@@ -2,11 +2,6 @@
 import icons from 'url:../../img/icons.svg'
 import View from './View'
 
-const EVENTS = Object.freeze({
-  HASH_CHANGE: 'hashchange',
-  LOAD: 'load'
-})
-
 export class PaginationView extends View {
   _parentElement = document.querySelector('.pagination')
 
