@@ -9,7 +9,8 @@ export const state = {
     results: [],
     resultsPerPage: RES_PER_PAGE,
     page: 1
-  }
+  },
+  bookmarks: []
 }
 
 export const loadRecipes = async id => {
@@ -27,6 +28,10 @@ export const loadRecipes = async id => {
       cookingTime: recipe.cooking_time,
       ingredients: recipe.ingredients
     }
+
+    if (state.bookmarks.some(b => b.id === recipe.id))
+      state.recipe.isBookmarked = true
+    else state.recipe.isBookmarked = false
   } catch (err) {
     throw err
   }
@@ -64,4 +69,21 @@ export const updateServings = newServings => {
   })
 
   state.recipe.servings = newServings
+}
+
+export const addBookmark = recipe => {
+  // Add bookmark
+  state.bookmarks.push(recipe)
+
+  // Mark the current recipe as bookmark
+  if (recipe.id === state.recipe.id) state.recipe.isBookmarked = true
+}
+
+export const deleteBookmark = recipeId => {
+  // Delete bookmark
+  const index = state.bookmarks.findIndex(b => b.id === recipeId)
+  state.bookmarks.splice(index, 1)
+
+  // Mark the current recipe as NOT bookmarked
+  if (recipeId === state.recipe.id) state.recipe.isBookmarked = false
 }
