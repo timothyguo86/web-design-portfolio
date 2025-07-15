@@ -7,6 +7,7 @@ import recipeView from './views/recipeView'
 import searchView from './views/searchView'
 import resultsView from './views/resultsView'
 import paginationView from './views/paginationView'
+import bookmarksView from './views/bookmarksView'
 
 const controlRecipes = async () => {
   try {
@@ -18,6 +19,7 @@ const controlRecipes = async () => {
 
     // 0) Update the results view to mark a selected search result
     resultsView.update(model.getSearchResultPage())
+    bookmarksView.update(model.state.bookmarks)
 
     // 1) Loading recipe
     await model.loadRecipes(recipeId)
@@ -65,10 +67,15 @@ const controlServings = newServings => {
 }
 
 const controlAddBookmark = () => {
+  // 1) Add / remove a bookmark
   if (!model.state.recipe.isBookmarked) model.addBookmark(model.state.recipe)
   else model.deleteBookmark(model.state.recipe.id)
 
+  // 2) Update recipe view
   recipeView.update(model.state.recipe)
+
+  // 3) Render bookmarks
+  bookmarksView.render(model.state.bookmarks)
 }
 
 const init = () => {
