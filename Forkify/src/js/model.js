@@ -13,6 +13,10 @@ export const state = {
   bookmarks: []
 }
 
+const persistBookmarks = () => {
+  localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks))
+}
+
 export const loadRecipes = async id => {
   try {
     const data = await getJSON(`${API_URL}${id}`)
@@ -29,10 +33,9 @@ export const loadRecipes = async id => {
       ingredients: recipe.ingredients
     }
 
-    if (state.bookmarks.some(b => b.id === recipe.id))
-      state.recipe.isBookmarked = true
-    else state.recipe.isBookmarked = false
+    state.recipe.isBookmarked = state.bookmarks.some(b => b.id === recipe.id)
   } catch (err) {
+    console.error(err)
     throw err
   }
 }
@@ -51,6 +54,7 @@ export const loadSearchResults = async query => {
     })
     state.search.page = 1
   } catch (err) {
+    console.error(err)
     throw err
   }
 }
@@ -77,6 +81,8 @@ export const addBookmark = recipe => {
 
   // Mark the current recipe as bookmark
   if (recipe.id === state.recipe.id) state.recipe.isBookmarked = true
+
+  persistBookmarks()
 }
 
 export const deleteBookmark = recipeId => {
@@ -86,4 +92,13 @@ export const deleteBookmark = recipeId => {
 
   // Mark the current recipe as NOT bookmarked
   if (recipeId === state.recipe.id) state.recipe.isBookmarked = false
+
+  persistBookmarks()
 }
+
+const init = () => {
+  const storedBookmarks = localStorage.getItem('bookmarks')
+  if (storedBookmarks) state.bookmarks = JSON.parse(storedBookmarks)
+}
+
+init()
