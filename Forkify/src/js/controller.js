@@ -8,6 +8,7 @@ import searchView from './views/searchView'
 import resultsView from './views/resultsView'
 import paginationView from './views/paginationView'
 import bookmarksView from './views/bookmarksView'
+import addRecipeView from './views/addRecipeView'
 
 const controlRecipes = async () => {
   try {
@@ -82,6 +83,10 @@ const controlBookmarks = () => {
   bookmarksView.render(model.state.bookmarks)
 }
 
+const controlAddRecipe = newRecipe => {
+  console.log(newRecipe)
+}
+
 const init = () => {
   bookmarksView.addHandlerRender(controlBookmarks)
   recipeView.addHandlerRender(controlRecipes)
@@ -89,6 +94,7 @@ const init = () => {
   recipeView.addHandlerBookmark(controlAddBookmark)
   searchView.addHandlerSearch(controlSearchResults)
   paginationView.addHandlerClick(controlPagination)
+  addRecipeView.addHandlerSubmit(controlAddRecipe)
 }
 
 init()
