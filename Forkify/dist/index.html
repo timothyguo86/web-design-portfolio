@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang=en><script type=importmap>{"imports":{"eyyUD":"/icons.c5b0f01c.svg"}}</script><meta charset=UTF-8><meta content="width=device-width, initial-scale=1.0" name=viewport><meta content="ie=edge" http-equiv=X-UA-Compatible><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700" rel=stylesheet><link href=/favicon.38ab3f7a.png rel="icon shortcut" type=image/x-icon><link href=/Forkify.81ef3ef2.css rel=stylesheet><script src=/Forkify.63ffaea3.js type=module></script><title>forkify // Search over 1,000,000 recipes</title><body>
+    <div class=container>
+      <header class=header>
+        <img alt=Logo class=header__logo src=/logo.0240107d.png>
+        <form class=search>
+          <input class=search__field placeholder="Search over 1,000,000 recipes...">
+          <button class="btn search__btn">
+            <svg class=search__icon><use href=/icons.c5b0f01c.svg#icon-search /></svg>
+            
+          </button>
+        </form>
+
+        <nav class=nav>
+          <ul class=nav__list>
+            <li class=nav__item>
+              <button class="nav__btn nav__btn--add-recipe">
+                <svg class=nav__icon><use href=/icons.c5b0f01c.svg#icon-edit /></svg>
+                
+              </button>
+            </li>
+            <li class=nav__item>
+              <button class="nav__btn nav__btn--bookmarks">
+                <svg class=nav__icon><use href=/icons.c5b0f01c.svg#icon-bookmark /></svg>
+                
+              </button>
+              <div class=bookmarks>
+                <ul class=bookmarks__list>
+                  <div class=message>
+                    <div>
+                      <svg><use href=/icons.c5b0f01c.svg#icon-smile /></svg>
+                    </div>
+                    <p>
+                      No bookmarks yet. Find a nice recipe and bookmark it :)
+                    </p>
+                  </div>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class=search-results>
+        <ul class=results></ul>
+
+        <div class=pagination></div>
+
+        <p class=copyright>
+          © Copyright by
+          <a class=github-link href=https://github.com/timothyguo86 target=_blank>
+            Yuxin Guo </a>. Use for learning or your portfolio. Don't use to teach. Don't claim
+          as your own.
+        </p>
+      </div>
+
+      <div class=recipe>
+        <div class=message>
+          <div>
+            <svg><use href=/icons.c5b0f01c.svg#icon-smile /></svg>
+          </div>
+          <p>Start by searching for a recipe or an ingredient. Have fun!</p>
+        </div>
+      </div>
+
+      <div class="hidden overlay"></div>
+      <div class="add-recipe-window hidden">
+        <button class=btn--close-modal>×</button>
+        <form class=upload>
+          <div class=upload__column>
+            <h3 class=upload__heading>Recipe data</h3>
+            <label>Title</label>
+            <input name=title required>
+            <label>URL</label>
+            <input name=sourceUrl required>
+            <label>Image URL</label>
+            <input name=image required>
+            <label>Publisher</label>
+            <input name=publisher required>
+            <label>Prep time</label>
+            <input name=cookingTime required type=number>
+            <label>Servings</label>
+            <input name=servings required type=number>
+          </div>
+
+          <div class=upload__column>
+            <h3 class=upload__heading>Ingredients</h3>
+            <label>Ingredient 1</label>
+            <input name=ingredient-1 placeholder="Format: 'Quantity,Unit,Description'" required>
+            <label>Ingredient 2</label>
+            <input name=ingredient-2 placeholder="Format: 'Quantity,Unit,Description'">
+            <label>Ingredient 3</label>
+            <input name=ingredient-3 placeholder="Format: 'Quantity,Unit,Description'">
+            <label>Ingredient 4</label>
+            <input name=ingredient-4 placeholder="Format: 'Quantity,Unit,Description'">
+            <label>Ingredient 5</label>
+            <input name=ingredient-5 placeholder="Format: 'Quantity,Unit,Description'">
+            <label>Ingredient 6</label>
+            <input name=ingredient-6 placeholder="Format: 'Quantity,Unit,Description'">
+          </div>
+
+          <button class="btn upload__btn">
+            <svg><use href=/icons.c5b0f01c.svg#icon-upload-cloud /></svg>
+            
+          </button>
+        </form>
+      </div>
+    </div>
+  
+
