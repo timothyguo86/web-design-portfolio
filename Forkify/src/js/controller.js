@@ -87,14 +87,21 @@ const controlBookmarks = () => {
 // The function must be async because it awaits the asynchronous model.submitRecipe call.
 const controlAddRecipe = async newRecipe => {
   try {
+    // Show loading spinner
+    addRecipeView.renderSpinner()
+
+    // Submit recipe
     await model.submitRecipe(newRecipe)
     console.log(model.state.recipe)
 
     // Render recipe
     recipeView.render(model.state.recipe)
 
+    // Success message
+    addRecipeView.renderMessage()
+
     // Close form window
-    setTimeout(() => addRecipeView._toggleWindow(), MODAL_CLOSE_SEC)
+    setTimeout(() => addRecipeView._toggleWindow(), MODAL_CLOSE_SEC * 1000)
   } catch (err) {
     addRecipeView.renderError(err.message)
   }
