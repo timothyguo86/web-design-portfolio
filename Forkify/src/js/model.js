@@ -1,6 +1,6 @@
 // local imports
-import { API_URL, RES_PER_PAGE } from './config'
-import { getJSON } from './helpers'
+import { API_KEY, API_URL, RES_PER_PAGE } from './config'
+import { getJSON, sendJSON } from './helpers'
 
 export const state = {
   recipe: {},
@@ -22,17 +22,7 @@ export const loadRecipes = async id => {
     const data = await getJSON(`${API_URL}${id}`)
     const { recipe } = data.data
 
-    state.recipe = {
-      id: recipe.id,
-      title: recipe.title,
-      publisher: recipe.publisher,
-      sourceUrl: recipe.source_url,
-      image: recipe.image_url,
-      servings: recipe.servings,
-      cookingTime: recipe.cooking_time,
-      ingredients: recipe.ingredients
-    }
-
+    state.recipe = _createRecipeObject(data)
     state.recipe.isBookmarked = state.bookmarks.some(b => b.id === recipe.id)
   } catch (err) {
     console.error(err)
@@ -96,9 +86,57 @@ export const deleteBookmark = recipeId => {
   persistBookmarks()
 }
 
+export const submitRecipe = async newRecipe => {
+  try {
+    const ingredients = Object.entries(newRecipe)
+      .filter(entry => entry[0].startsWith('ingredient') && entry[1] !== '')
+      .map(ingredient => {
+        const ingredientArray = ingredient[1].replaceAll(' ', '').split(',')
+        if (ingredientArray.length !== 3)
+          throw new Error('Wrong ingredient format. Use: quantity,unit,desc')
+        const [quantity, unit, description] = ingredientArray
+        return { quantity: quantity ? +quantity : null, unit, description }
+      })
+
+    const recipe = {
+      title: newRecipe.title,
+      source_url: newRecipe.sourceUrl,
+      image_url: newRecipe.image,
+      publisher: newRecipe.publisher,
+      cooking_time: +newRecipe.cookingTime,
+      servings: +newRecipe.servings,
+      ingredients
+    }
+
+    const url = `${API_URL}?key=${API_KEY}`
+    const data = await sendJSON(url, recipe)
+    state.recipe = _createRecipeObject(data)
+    addBookmark(state.recipe)
+  } catch (err) {
+    console.error(err)
+    throw err
+  }
+}
+
 const init = () => {
   const storedBookmarks = localStorage.getItem('bookmarks')
   if (storedBookmarks) state.bookmarks = JSON.parse(storedBookmarks)
+}
+
+const _createRecipeObject = data => {
+  const { recipe } = data.data
+
+  return {
+    id: recipe.id,
+    title: recipe.title,
+    publisher: recipe.publisher,
+    sourceUrl: recipe.source_url,
+    image: recipe.image_url,
+    servings: recipe.servings,
+    cookingTime: recipe.cooking_time,
+    ingredients: recipe.ingredients,
+    ...(recipe.key && { key: recipe.key })
+  }
 }
 
 init()

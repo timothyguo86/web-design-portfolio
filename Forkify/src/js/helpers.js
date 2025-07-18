@@ -9,15 +9,23 @@ const timeout = s => {
   })
 }
 
-export const getJSON = async url => {
+export const getJSON = async url => _requestJSON(url)
+
+export const sendJSON = async (url, uploadData) =>
+  _requestJSON(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(uploadData)
+  })
+
+const _requestJSON = async (url, options = {}) => {
   try {
-    const res = await Promise.race([fetch(url), timeout(TIMEOUT_SEC)])
+    const res = await Promise.race([fetch(url, options), timeout(TIMEOUT_SEC)])
     const data = await res.json()
-
     if (!res.ok) throw new Error(`${data.message} (${res.status})`)
-
     return data
   } catch (err) {
+    console.error(err)
     throw err
   }
 }

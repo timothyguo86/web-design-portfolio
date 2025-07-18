@@ -9,6 +9,7 @@ import resultsView from './views/resultsView'
 import paginationView from './views/paginationView'
 import bookmarksView from './views/bookmarksView'
 import addRecipeView from './views/addRecipeView'
+import { MODAL_CLOSE_SEC } from './config'
 
 const controlRecipes = async () => {
   try {
@@ -83,8 +84,20 @@ const controlBookmarks = () => {
   bookmarksView.render(model.state.bookmarks)
 }
 
-const controlAddRecipe = newRecipe => {
-  console.log(newRecipe)
+// The function must be async because it awaits the asynchronous model.submitRecipe call.
+const controlAddRecipe = async newRecipe => {
+  try {
+    await model.submitRecipe(newRecipe)
+    console.log(model.state.recipe)
+
+    // Render recipe
+    recipeView.render(model.state.recipe)
+
+    // Close form window
+    setTimeout(() => addRecipeView._toggleWindow(), MODAL_CLOSE_SEC)
+  } catch (err) {
+    addRecipeView.renderError(err.message)
+  }
 }
 
 const init = () => {
