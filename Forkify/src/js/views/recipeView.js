@@ -2,23 +2,47 @@
 import icons from 'url:../../img/icons.svg'
 import View from './View'
 
+/**
+ * Object containing event types used by the recipe view
+ * @readonly
+ * @enum {string}
+ */
 const EVENTS = Object.freeze({
   HASH_CHANGE: 'hashchange',
   LOAD: 'load'
 })
 
 export class RecipeView extends View {
+  /** @type {HTMLElement} Parent element where the recipe will be rendered */
   _parentElement = document.querySelector('.recipe')
+
+  /** @type {string} Error message to display when a recipe cannot be found */
   _errorMessage =
     'We could not find the recipe you are looking for. Please try again.'
+
+  /** @type {string} Success message (empty as not used in this view) */
   _message = ''
 
+  /**
+   * Adds event listeners to render the recipe when the page loads or the hash changes
+   *
+   * @param {Function} handler - The callback function to execute when events occur
+   * @param {Array<string>} [events=[EVENTS.HASH_CHANGE, EVENTS.LOAD]] - The events to listen for
+   * @returns {void}
+   */
   addHandlerRender(handler, events = [EVENTS.HASH_CHANGE, EVENTS.LOAD]) {
     events.forEach(event => {
       window.addEventListener(event, handler)
     })
   }
 
+  /**
+   * Adds event listener for updating the recipe servings
+   * Listens for clicks on the servings buttons and calls the handler with the new servings count
+   *
+   * @param {Function} handler - The callback function to execute with the new servings count
+   * @returns {void}
+   */
   addHandlerUpdateServings(handler) {
     this._parentElement.addEventListener('click', e => {
       const btn = e.target.closest('.btn--update-servings')
@@ -31,6 +55,12 @@ export class RecipeView extends View {
     })
   }
 
+  /**
+   * Adds event listener for bookmarking/unbookmarking the current recipe
+   *
+   * @param {Function} handler - The callback function to execute when the bookmark button is clicked
+   * @returns {void}
+   */
   addHandlerBookmark(handler) {
     this._parentElement.addEventListener('click', e => {
       const btn = e.target.closest('.btn--bookmark')
@@ -40,6 +70,14 @@ export class RecipeView extends View {
     })
   }
 
+  /**
+   * Generates the HTML markup for the recipe view
+   * Creates a detailed view of the recipe including image, cooking time, servings,
+   * ingredients, and a link to the original recipe directions
+   *
+   * @private
+   * @returns {string} HTML markup for the recipe
+   */
   _generateMarkup() {
     return `
 			<figure class="recipe__fig">

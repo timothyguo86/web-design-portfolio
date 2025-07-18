@@ -3,8 +3,16 @@ import icons from 'url:../../img/icons.svg'
 import View from './View'
 
 export class PaginationView extends View {
+  /** @type {HTMLElement} Parent element where pagination controls will be rendered */
   _parentElement = document.querySelector('.pagination')
 
+  /**
+   * Adds event listener for pagination button clicks
+   * Detects which button was clicked and calls the handler with the target page number
+   *
+   * @param {Function} handler - The callback function to execute with the target page number
+   * @returns {void}
+   */
   addHandlerClick(handler) {
     this._parentElement.addEventListener('click', e => {
       const btn = e.target.closest('.btn--inline')
@@ -16,6 +24,13 @@ export class PaginationView extends View {
     })
   }
 
+  /**
+   * Generates the HTML markup for pagination controls
+   * Determines which buttons to show based on the current page and total number of pages
+   *
+   * @private
+   * @returns {string} HTML markup for pagination controls
+   */
   _generateMarkup() {
     const { page: currentPage, results, resultsPerPage } = this._data
     const numPages = Math.ceil(results.length / resultsPerPage)
@@ -40,6 +55,13 @@ export class PaginationView extends View {
     `
   }
 
+  /**
+   * Generates HTML for the "previous page" button
+   *
+   * @private
+   * @param {number} currentPage - The current page number
+   * @returns {string} HTML markup for the previous page button
+   */
   _generatePrevButton(currentPage) {
     return `
       <button class="btn--inline pagination__btn--prev" data-goto="${currentPage - 1}">
@@ -51,6 +73,13 @@ export class PaginationView extends View {
     `
   }
 
+  /**
+   * Generates HTML for the "next page" button
+   *
+   * @private
+   * @param {number} currentPage - The current page number
+   * @returns {string} HTML markup for the next page button
+   */
   _generateNextButton(currentPage) {
     return `
       <button class="btn--inline pagination__btn--next" data-goto="${currentPage + 1}">

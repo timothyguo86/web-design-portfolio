@@ -3,8 +3,16 @@ import View from './View'
 import icons from 'url:../../img/icons.svg'
 
 class PreviewView extends View {
+  /** @type {string} Empty parent element as this view is used as a component */
   _parentElement = ''
 
+  /**
+   * Generates the HTML markup for a recipe preview
+   * Highlights the currently selected recipe and displays user-generated badge if applicable
+   *
+   * @private
+   * @returns {string} HTML markup for the recipe preview
+   */
   _generateMarkup() {
     const id = window.location.hash.slice(1)
 

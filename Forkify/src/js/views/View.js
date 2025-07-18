@@ -2,6 +2,11 @@
 import icons from 'url:../../img/icons.svg'
 
 export default class View {
+  /**
+   * Data to be rendered in the view
+   * @type {Object|Array}
+   * @protected
+   */
   _data
 
   /**
@@ -25,6 +30,8 @@ export default class View {
 
   /**
    * Update the DOM with new data without re-rendering the entire view
+   * Uses a virtual DOM approach to only update elements that have changed
+   *
    * @param {Object | Object[]} data The data to be updated (e.g. recipe)
    * @returns {undefined}
    */
@@ -54,6 +61,12 @@ export default class View {
     })
   }
 
+  /**
+   * Renders a loading spinner in the parent element
+   * Used to indicate that content is being loaded
+   *
+   * @returns {void}
+   */
   renderSpinner() {
     const spinner = `
         <div class="spinner">
@@ -66,6 +79,12 @@ export default class View {
     this._parentElement.insertAdjacentHTML('afterbegin', spinner)
   }
 
+  /**
+   * Renders a success message in the parent element
+   *
+   * @param {string} [message=this._message] - The message to display
+   * @returns {void}
+   */
   renderMessage(message = this._message) {
     const markup = `
         <div class="message">
@@ -81,6 +100,12 @@ export default class View {
     this._parentElement.insertAdjacentHTML('afterbegin', markup)
   }
 
+  /**
+   * Renders an error message in the parent element
+   *
+   * @param {string} [message=this._errorMessage] - The error message to display
+   * @returns {void}
+   */
   renderError(message = this._errorMessage) {
     const markup = `
         <div class="error">
@@ -96,6 +121,12 @@ export default class View {
     this._parentElement.insertAdjacentHTML('afterbegin', markup)
   }
 
+  /**
+   * Clears the content of the parent element
+   *
+   * @private
+   * @returns {void}
+   */
   _clear() {
     this._parentElement.innerHTML = ''
   }
