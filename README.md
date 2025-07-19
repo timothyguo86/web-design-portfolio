@@ -12,6 +12,7 @@ maintain design systems.
 | 02 | [TMDB Angular](https://github.com/timothyguo86/tmdb-angular)                        | [Live Demo](https://timothyguo86.github.io/tmdb-angular/)                  |
 | 03 | [Bankist](https://github.com/timothyguo86/web-design-portfolio/tree/main/Bankist)   | [Live Demo](https://timothyguo86.github.io/web-design-portfolio/Bankist/)  |
 | 04 | [Mapty](https://github.com/timothyguo86/web-design-portfolio/tree/main/Mapty)       | [Live Demo](https://timothyguo86.github.io/web-design-portfolio/Mapty/)    |
+| 05 | [Forkify](https://github.com/timothyguo86/web-design-portfolio/tree/main/Forkify)   | [Live Demo](https://timothyguo86.github.io/web-design-portfolio/Forkify/)  |
 
 ## Contributing
 
