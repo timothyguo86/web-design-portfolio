@@ -3,13 +3,8 @@ import View from './View'
 import previewView from './previewView'
 
 class ResultsView extends View {
-  /** @type {HTMLElement} Parent element where the search results will be rendered */
   _parentElement = document.querySelector('.results')
-
-  /** @type {string} Error message to display when no recipes match the search query */
   _errorMessage = 'No recipes found for your query! Please try again.'
-
-  /** @type {string} Success message (empty as not used in this view) */
   _message = ''
 
   /**

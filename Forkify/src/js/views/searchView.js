@@ -1,5 +1,4 @@
 class SearchView {
-  /** @type {HTMLElement} Parent element containing the search form */
   _parentElement = document.querySelector('.search')
 
   /**

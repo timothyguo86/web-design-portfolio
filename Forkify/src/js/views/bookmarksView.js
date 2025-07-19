@@ -3,13 +3,8 @@ import View from './View'
 import previewView from './previewView'
 
 class BookmarksView extends View {
-  /** @type {HTMLElement} Parent element where the bookmarks will be rendered */
   _parentElement = document.querySelector('.bookmarks')
-
-  /** @type {string} Error message to display when no bookmarks are available */
   _errorMessage = 'No bookmakers yet. Find a nice recipe and bookmark it!'
-
-  /** @type {string} Success message (empty as not used in this view) */
   _message = ''
 
   /**

@@ -1,33 +1,54 @@
-<!DOCTYPE html><html lang=en><script type=importmap>{"imports":{"eyyUD":"./icons.c5b0f01c.svg"}}</script><meta charset=UTF-8><meta content="width=device-width, initial-scale=1.0" name=viewport><meta content="ie=edge" http-equiv=X-UA-Compatible><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700" rel=stylesheet><link href=favicon.38ab3f7a.png rel="icon shortcut" type=image/x-icon><link href=Forkify.81ef3ef2.css rel=stylesheet><script src=Forkify.8664c1f5.js type=module></script><title>forkify // Search over 1,000,000 recipes</title><body>
-    <div class=container>
-      <header class=header>
-        <img alt=Logo class=header__logo src=logo.0240107d.png>
-        <form class=search>
-          <input class=search__field placeholder="Search over 1,000,000 recipes...">
+<!DOCTYPE html><html lang="en"><head><script type="importmap">{"imports":{"fNVyn":"/icons.0809ef97.svg"}}</script>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700" rel="stylesheet">
+    <link href="/favicon.8b2f57bf.png" rel="shortcut icon" type="image/x-icon">
+
+    <link href="/Forkify.f7626f62.css" rel="stylesheet">
+    <script src="/Forkify.4a59a05f.js" type="module"></script>
+
+    <title>forkify // Search over 1,000,000 recipes</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <img alt="Logo" class="header__logo" src="/logo.726d37a8.png">
+        <form class="search">
+          <input class="search__field" placeholder="Search over 1,000,000 recipes..." type="text">
           <button class="btn search__btn">
-            <svg class=search__icon><use href=icons.c5b0f01c.svg#icon-search /></svg>
-            
+            <svg class="search__icon">
+              <use href="/icons.21bad73c.svg#icon-search"></use>
+            </svg>
+            <span>Search</span>
           </button>
         </form>
 
-        <nav class=nav>
-          <ul class=nav__list>
-            <li class=nav__item>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
               <button class="nav__btn nav__btn--add-recipe">
-                <svg class=nav__icon><use href=icons.c5b0f01c.svg#icon-edit /></svg>
-                
+                <svg class="nav__icon">
+                  <use href="/icons.21bad73c.svg#icon-edit"></use>
+                </svg>
+                <span>Add recipe</span>
               </button>
             </li>
-            <li class=nav__item>
+            <li class="nav__item">
               <button class="nav__btn nav__btn--bookmarks">
-                <svg class=nav__icon><use href=icons.c5b0f01c.svg#icon-bookmark /></svg>
-                
+                <svg class="nav__icon">
+                  <use href="/icons.21bad73c.svg#icon-bookmark"></use>
+                </svg>
+                <span>Bookmarks</span>
               </button>
-              <div class=bookmarks>
-                <ul class=bookmarks__list>
-                  <div class=message>
+              <div class="bookmarks">
+                <ul class="bookmarks__list">
+                  <div class="message">
                     <div>
-                      <svg><use href=icons.c5b0f01c.svg#icon-smile /></svg>
+                      <svg>
+                        <use href="/icons.21bad73c.svg#icon-smile"></use>
+                      </svg>
                     </div>
                     <p>
                       No bookmarks yet. Find a nice recipe and bookmark it :)
@@ -40,70 +61,75 @@
         </nav>
       </header>
 
-      <div class=search-results>
-        <ul class=results></ul>
+      <div class="search-results">
+        <ul class="results"></ul>
 
-        <div class=pagination></div>
+        <div class="pagination"></div>
 
-        <p class=copyright>
+        <p class="copyright">
           © Copyright by
-          <a class=github-link href=https://github.com/timothyguo86 target=_blank>
+          <a class="github-link" href="https://github.com/timothyguo86" target="_blank">
             Yuxin Guo </a>. Use for learning or your portfolio. Don't use to teach. Don't claim
           as your own.
         </p>
       </div>
 
-      <div class=recipe>
-        <div class=message>
+      <div class="recipe">
+        <div class="message">
           <div>
-            <svg><use href=icons.c5b0f01c.svg#icon-smile /></svg>
+            <svg>
+              <use href="/icons.21bad73c.svg#icon-smile"></use>
+            </svg>
           </div>
           <p>Start by searching for a recipe or an ingredient. Have fun!</p>
         </div>
       </div>
 
-      <div class="hidden overlay"></div>
+      <div class="overlay hidden"></div>
       <div class="add-recipe-window hidden">
-        <button class=btn--close-modal>×</button>
-        <form class=upload>
-          <div class=upload__column>
-            <h3 class=upload__heading>Recipe data</h3>
+        <button class="btn--close-modal">×</button>
+        <form class="upload">
+          <div class="upload__column">
+            <h3 class="upload__heading">Recipe data</h3>
             <label>Title</label>
-            <input name=title required>
+            <input name="title" required="" type="text">
             <label>URL</label>
-            <input name=sourceUrl required>
+            <input name="sourceUrl" required="" type="text">
             <label>Image URL</label>
-            <input name=image required>
+            <input name="image" required="" type="text">
             <label>Publisher</label>
-            <input name=publisher required>
+            <input name="publisher" required="" type="text">
             <label>Prep time</label>
-            <input name=cookingTime required type=number>
+            <input name="cookingTime" required="" type="number">
             <label>Servings</label>
-            <input name=servings required type=number>
+            <input name="servings" required="" type="number">
           </div>
 
-          <div class=upload__column>
-            <h3 class=upload__heading>Ingredients</h3>
+          <div class="upload__column">
+            <h3 class="upload__heading">Ingredients</h3>
             <label>Ingredient 1</label>
-            <input name=ingredient-1 placeholder="Format: 'Quantity,Unit,Description'" required>
+            <input name="ingredient-1" placeholder="Format: 'Quantity,Unit,Description'" required="" type="text">
             <label>Ingredient 2</label>
-            <input name=ingredient-2 placeholder="Format: 'Quantity,Unit,Description'">
+            <input name="ingredient-2" placeholder="Format: 'Quantity,Unit,Description'" type="text">
             <label>Ingredient 3</label>
-            <input name=ingredient-3 placeholder="Format: 'Quantity,Unit,Description'">
+            <input name="ingredient-3" placeholder="Format: 'Quantity,Unit,Description'" type="text">
             <label>Ingredient 4</label>
-            <input name=ingredient-4 placeholder="Format: 'Quantity,Unit,Description'">
+            <input name="ingredient-4" placeholder="Format: 'Quantity,Unit,Description'" type="text">
             <label>Ingredient 5</label>
-            <input name=ingredient-5 placeholder="Format: 'Quantity,Unit,Description'">
+            <input name="ingredient-5" placeholder="Format: 'Quantity,Unit,Description'" type="text">
             <label>Ingredient 6</label>
-            <input name=ingredient-6 placeholder="Format: 'Quantity,Unit,Description'">
+            <input name="ingredient-6" placeholder="Format: 'Quantity,Unit,Description'" type="text">
           </div>
 
           <button class="btn upload__btn">
-            <svg><use href=icons.c5b0f01c.svg#icon-upload-cloud /></svg>
-            
+            <svg>
+              <use href="/icons.21bad73c.svg#icon-upload-cloud"></use>
+            </svg>
+            <span>Upload</span>
           </button>
         </form>
       </div>
     </div>
   
 
+</body></html>

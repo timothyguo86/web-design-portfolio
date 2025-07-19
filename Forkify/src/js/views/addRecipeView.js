@@ -2,22 +2,12 @@
 import View from './View'
 
 export class AddRecipeView extends View {
-  /** @type {HTMLElement} Parent element where the form will be rendered */
   _parentElement = document.querySelector('.upload')
-
-  /** @type {string} Success message displayed after recipe submission */
   _message = 'Recipe was successfully added!'
 
-  /** @type {HTMLElement} Modal window element for the recipe form */
   _window = document.querySelector('.add-recipe-window')
-
-  /** @type {HTMLElement} Overlay element that darkens the background when modal is open */
   _overlay = document.querySelector('.overlay')
-
-  /** @type {HTMLElement} Button that opens the recipe form modal */
   _btnOpen = document.querySelector('.nav__btn--add-recipe\n')
-
-  /** @type {HTMLElement} Button that closes the recipe form modal */
   _btnClose = document.querySelector('.btn--close-modal')
 
   constructor() {

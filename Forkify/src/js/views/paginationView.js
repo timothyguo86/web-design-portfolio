@@ -3,7 +3,6 @@ import icons from 'url:../../img/icons.svg'
 import View from './View'
 
 export class PaginationView extends View {
-  /** @type {HTMLElement} Parent element where pagination controls will be rendered */
   _parentElement = document.querySelector('.pagination')
 
   /**

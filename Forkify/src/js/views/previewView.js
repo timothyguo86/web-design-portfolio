@@ -3,7 +3,6 @@ import View from './View'
 import icons from 'url:../../img/icons.svg'
 
 class PreviewView extends View {
-  /** @type {string} Empty parent element as this view is used as a component */
   _parentElement = ''
 
   /**

@@ -3190,7 +3190,7 @@ exports.default = View;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class SearchView {
-    /** @type {HTMLElement} Parent element containing the search form */ _parentElement = document.querySelector('.search');
+    _parentElement = document.querySelector('.search');
     /**
    * Retrieves the current search query from the input field and clears the input
    *
@@ -3231,9 +3231,9 @@ var _viewDefault = parcelHelpers.interopDefault(_view);
 var _previewView = require("./previewView");
 var _previewViewDefault = parcelHelpers.interopDefault(_previewView);
 class ResultsView extends (0, _viewDefault.default) {
-    /** @type {HTMLElement} Parent element where the search results will be rendered */ _parentElement = document.querySelector('.results');
-    /** @type {string} Error message to display when no recipes match the search query */ _errorMessage = 'No recipes found for your query! Please try again.';
-    /** @type {string} Success message (empty as not used in this view) */ _message = '';
+    _parentElement = document.querySelector('.results');
+    _errorMessage = 'No recipes found for your query! Please try again.';
+    _message = '';
     /**
    * Generates the markup string by mapping over the data and rendering previews for each result.
    * Combines all rendered preview strings into a single string.
@@ -3254,7 +3254,7 @@ var _viewDefault = parcelHelpers.interopDefault(_view);
 var _iconsSvg = require("url:../../img/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class PreviewView extends (0, _viewDefault.default) {
-    /** @type {string} Empty parent element as this view is used as a component */ _parentElement = '';
+    _parentElement = '';
     /**
    * Generates the HTML markup for a recipe preview
    * Highlights the currently selected recipe and displays user-generated badge if applicable
@@ -3295,7 +3295,7 @@ var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 var _view = require("./View");
 var _viewDefault = parcelHelpers.interopDefault(_view);
 class PaginationView extends (0, _viewDefault.default) {
-    /** @type {HTMLElement} Parent element where pagination controls will be rendered */ _parentElement = document.querySelector('.pagination');
+    _parentElement = document.querySelector('.pagination');
     /**
    * Adds event listener for pagination button clicks
    * Detects which button was clicked and calls the handler with the target page number
@@ -3375,9 +3375,9 @@ var _viewDefault = parcelHelpers.interopDefault(_view);
 var _previewView = require("./previewView");
 var _previewViewDefault = parcelHelpers.interopDefault(_previewView);
 class BookmarksView extends (0, _viewDefault.default) {
-    /** @type {HTMLElement} Parent element where the bookmarks will be rendered */ _parentElement = document.querySelector('.bookmarks');
-    /** @type {string} Error message to display when no bookmarks are available */ _errorMessage = 'No bookmakers yet. Find a nice recipe and bookmark it!';
-    /** @type {string} Success message (empty as not used in this view) */ _message = '';
+    _parentElement = document.querySelector('.bookmarks');
+    _errorMessage = 'No bookmakers yet. Find a nice recipe and bookmark it!';
+    _message = '';
     /**
    * Adds an event listener for the 'load' event on the window object and associates it with the provided handler function.
    *
@@ -3405,12 +3405,12 @@ parcelHelpers.export(exports, "AddRecipeView", ()=>AddRecipeView);
 var _view = require("./View");
 var _viewDefault = parcelHelpers.interopDefault(_view);
 class AddRecipeView extends (0, _viewDefault.default) {
-    /** @type {HTMLElement} Parent element where the form will be rendered */ _parentElement = document.querySelector('.upload');
-    /** @type {string} Success message displayed after recipe submission */ _message = 'Recipe was successfully added!';
-    /** @type {HTMLElement} Modal window element for the recipe form */ _window = document.querySelector('.add-recipe-window');
-    /** @type {HTMLElement} Overlay element that darkens the background when modal is open */ _overlay = document.querySelector('.overlay');
-    /** @type {HTMLElement} Button that opens the recipe form modal */ _btnOpen = document.querySelector('.nav__btn--add-recipe\n');
-    /** @type {HTMLElement} Button that closes the recipe form modal */ _btnClose = document.querySelector('.btn--close-modal');
+    _parentElement = document.querySelector('.upload');
+    _message = 'Recipe was successfully added!';
+    _window = document.querySelector('.add-recipe-window');
+    _overlay = document.querySelector('.overlay');
+    _btnOpen = document.querySelector('.nav__btn--add-recipe\n');
+    _btnClose = document.querySelector('.btn--close-modal');
     constructor(){
         super();
         this._addHandlerShowWindow();
