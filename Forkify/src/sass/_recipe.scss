@@ -84,7 +84,7 @@
   }
 
   &__info-icon {
-    fill: base.$color-primary;
+    color: base.$color-primary;
     height: 2.35rem;
     margin-right: 1.15rem;
     width: 2.35rem;
@@ -112,10 +112,9 @@
     margin-right: 1.75rem;
     width: 4rem;
 
-    svg {
-      fill: base.$color-primary;
-      height: 2.25rem;
-      width: 2.25rem;
+    i {
+      color: base.$color-primary;
+      font-size: 2.25rem;
     }
   }
 
@@ -143,7 +142,7 @@
   }
 
   &__icon {
-    fill: base.$color-primary;
+    color: base.$color-primary;
     flex: 0 0 auto;
     height: 2rem;
     margin-right: 1.1rem;

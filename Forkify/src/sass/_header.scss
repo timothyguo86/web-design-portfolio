@@ -87,8 +87,8 @@
     text-transform: uppercase;
     transition: all 0.3s;
 
-    svg {
-      fill: base.$color-primary;
+    i {
+      color: base.$color-primary;
       height: 2.4rem;
       margin-right: 0.7rem;
       transform: translateY(-1px);

@@ -15,6 +15,7 @@
 	},
 	"dependencies": {
 		"core-js": "^3.43.0",
-		"regenerator-runtime": "^0.14.1"
+		"regenerator-runtime": "^0.14.1",
+		"@fortawesome/fontawesome-free": "^6.5.1"
 	}
 }

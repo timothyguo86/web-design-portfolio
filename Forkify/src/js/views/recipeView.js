@@ -1,5 +1,4 @@
 // local imports
-import icons from 'url:../../img/icons.svg'
 import View from './View'
 
 /**
@@ -89,42 +88,30 @@ export class RecipeView extends View {
 
 			<div class="recipe__details">
 				<div class="recipe__info">
-					<svg class="recipe__info-icon">
-						<use href="${icons}#icon-clock"></use>
-					</svg>
+					<i class="fas fa-clock recipe__info-icon"></i>
 					<span class="recipe__info-data recipe__info-data--minutes">${this._data.cookingTime}</span>
 					<span class="recipe__info-text">minutes</span>
 				</div>
 				<div class="recipe__info">
-					<svg class="recipe__info-icon">
-						<use href="${icons}#icon-users"></use>
-					</svg>
+					<i class="fas fa-users recipe__info-icon"></i>
 					<span class="recipe__info-data recipe__info-data--people">${this._data.servings}</span>
 					<span class="recipe__info-text">servings</span>
 
 					<div class="recipe__info-buttons">
 						<button class="btn--tiny btn--update-servings" data-update-to="${this._data.servings - 1}">
-							<svg>
-								<use href="${icons}#icon-minus-circle"></use>
-							</svg>
+							<i class="fas fa-minus-circle"></i>
 						</button>
 						<button class="btn--tiny btn--update-servings" data-update-to="${this._data.servings + 1}">
-							<svg>
-								<use href="${icons}#icon-plus-circle"></use>
-							</svg>
+							<i class="fas fa-plus-circle"></i>
 						</button>
 					</div>
 				</div>
 
-        <div class="preview__user-generated ${this._data.key ? '' : 'hidden'}">
-          <svg>
-            <use href="${icons}#icon-user"></use>
-          </svg>
+        <div class="recipe__user-generated ${this._data.key ? '' : 'hidden'}">
+          <i class="fas fa-user"></i>
 				</div>
 				<button class="btn--round btn--bookmark">
-					<svg class="">
-						<use href="${icons}#icon-bookmark${this._data.isBookmarked ? '-fill' : ''}"></use>
-					</svg>
+					<i class="fa${this._data.isBookmarked ? 's' : 'r'} fa-bookmark"></i>
 				</button>
 			</div>
 
@@ -135,9 +122,7 @@ export class RecipeView extends View {
             .map(ingredient => {
               return `
 					<li class="recipe__ingredient">
-						<svg class="recipe__icon">
-							<use href="${icons}#icon-check"></use>
-						</svg>
+						<i class="fas fa-check recipe__icon"></i>
 						<div class="recipe__quantity">${ingredient.quantity || ''}</div>
 						<div class="recipe__description">
 							<span class="recipe__unit">${ingredient.unit}</span>
@@ -163,9 +148,7 @@ export class RecipeView extends View {
 					target="_blank"
 				>
 					<span>Directions</span>
-					<svg class="search__icon">
-						<use href="${icons}#icon-arrow-right"></use>
-					</svg>
+					<i class="fas fa-arrow-right search__icon"></i>
 				</a>
 			</div>
     `

@@ -51,6 +51,10 @@ body {
   }
 }
 
+.fas {
+  font-size: 2.4rem;
+}
+
 .btn--small, .btn--small:link, .btn--small:visited, .btn {
   align-items: center;
   background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
@@ -77,8 +81,8 @@ body {
   font-weight: 600;
   padding: 1.5rem 4rem;
 }
-.btn svg {
-  fill: currentColor;
+.btn i {
+  color: currentColor;
   height: 2.25rem;
   width: 2.25rem;
 }
@@ -89,8 +93,8 @@ body {
   padding: 1.25rem 2.25rem;
   text-decoration: none;
 }
-.btn--small svg, .btn--small:link svg, .btn--small:visited svg {
-  fill: currentColor;
+.btn--small i, .btn--small:link i, .btn--small:visited i {
+  color: currentColor;
   height: 1.75rem;
   width: 1.75rem;
 }
@@ -108,8 +112,8 @@ body {
   padding: 0.8rem 1.2rem;
   transition: all 0.2s;
 }
-.btn--inline svg {
-  fill: currentColor;
+.btn--inline i {
+  color: currentColor;
   height: 1.6rem;
   margin: 0 0.2rem;
   width: 1.6rem;
@@ -143,21 +147,18 @@ body {
 .btn--round:focus {
   outline: none;
 }
-.btn--round svg {
-  fill: #fff;
-  height: 2.5rem;
-  width: 2.5rem;
+.btn--round i {
+  color: #fff;
+  font-size: 2.5rem;
 }
 
 .btn--tiny {
   background: none;
   border: none;
   cursor: pointer;
-  height: 2rem;
-  width: 2rem;
 }
-.btn--tiny svg {
-  fill: #f38e82;
+.btn--tiny i {
+  color: #f38e82;
   height: 100%;
   transition: all 0.3s;
   width: 100%;
@@ -165,12 +166,12 @@ body {
 .btn--tiny:focus {
   outline: none;
 }
-.btn--tiny:hover svg {
-  fill: #f48982;
+.btn--tiny:hover i {
+  color: #f48982;
   transform: translateY(-1px);
 }
-.btn--tiny:active svg {
-  fill: #f48982;
+.btn--tiny:active i {
+  color: #f48982;
   transform: translateY(0);
 }
 .btn--tiny:not(:last-child) {
@@ -195,11 +196,10 @@ body {
   margin: 5rem auto;
   text-align: center;
 }
-.spinner svg {
+.spinner i {
   animation: rotate 2s infinite linear;
-  fill: #f38e82;
-  height: 6rem;
-  width: 6rem;
+  color: #f38e82;
+  font-size: 6rem;
 }
 
 @keyframes rotate {
@@ -217,9 +217,9 @@ body {
   max-width: 40rem;
   padding: 5rem 4rem;
 }
-.message svg,
-.error svg {
-  fill: #f38e82;
+.message i,
+.error i {
+  color: #f38e82;
   height: 3rem;
   transform: translateY(-0.3rem);
   width: 3rem;
@@ -276,7 +276,7 @@ body {
     width: auto;
   }
   .search__field::placeholder {
-    color: white;
+    color: #d3c7c3;
   }
 }
 .search__btn {
@@ -311,8 +311,8 @@ body {
   text-transform: uppercase;
   transition: all 0.3s;
 }
-.nav__btn svg {
-  fill: #f38e82;
+.nav__btn i {
+  color: #f38e82;
   height: 2.4rem;
   margin-right: 0.7rem;
   transform: translateY(-1px);
@@ -433,10 +433,9 @@ body {
   margin-right: 1.75rem;
   width: 2rem;
 }
-.preview__user-generated svg {
-  fill: #f38e82;
-  height: 1.2rem;
-  width: 1.2rem;
+.preview__user-generated i {
+  color: #f38e82;
+  font-size: 1.2rem;
 }
 
 .search-results {
@@ -541,7 +540,7 @@ body {
   margin-right: 4.5rem;
 }
 .recipe__info-icon {
-  fill: #f38e82;
+  color: #f38e82;
   height: 2.35rem;
   margin-right: 1.15rem;
   width: 2.35rem;
@@ -566,10 +565,9 @@ body {
   margin-right: 1.75rem;
   width: 4rem;
 }
-.recipe__user-generated svg {
-  fill: #f38e82;
-  height: 2.25rem;
-  width: 2.25rem;
+.recipe__user-generated i {
+  color: #f38e82;
+  font-size: 2.25rem;
 }
 .recipe__ingredients {
   align-items: center;
@@ -590,7 +588,7 @@ body {
   display: flex;
 }
 .recipe__icon {
-  fill: #f38e82;
+  color: #f38e82;
   flex: 0 0 auto;
   height: 2rem;
   margin-right: 1.1rem;

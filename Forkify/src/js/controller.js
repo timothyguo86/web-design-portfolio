@@ -139,7 +139,6 @@ const controlAddRecipe = async newRecipe => {
 
     // Submit recipe
     await model.submitRecipe(newRecipe)
-    console.log(model.state.recipe)
 
     // Render recipe
     recipeView.render(model.state.recipe)

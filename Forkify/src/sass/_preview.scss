@@ -97,10 +97,9 @@
     margin-right: 1.75rem;
     width: 2rem;
 
-    svg {
-      fill: base.$color-primary;
-      height: 1.2rem;
-      width: 1.2rem;
+    i {
+      color: base.$color-primary;
+      font-size: 1.2rem;
     }
   }
 }

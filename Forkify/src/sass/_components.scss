@@ -31,8 +31,8 @@
   font-weight: 600;
   padding: 1.5rem 4rem;
 
-  svg {
-    fill: currentColor;
+  i {
+    color: currentColor;
     height: 2.25rem;
     width: 2.25rem;
   }
@@ -49,8 +49,8 @@
     padding: 1.25rem 2.25rem;
     text-decoration: none;
 
-    svg {
-      fill: currentColor;
+    i {
+      color: currentColor;
       height: 1.75rem;
       width: 1.75rem;
     }
@@ -70,8 +70,8 @@
   padding: 0.8rem 1.2rem;
   transition: all 0.2s;
 
-  svg {
-    fill: currentColor;
+  i {
+    color: currentColor;
     height: 1.6rem;
     margin: 0 0.2rem;
     width: 1.6rem;
@@ -111,10 +111,9 @@
     outline: none;
   }
 
-  svg {
-    fill: #fff;
-    height: 2.5rem;
-    width: 2.5rem;
+  i {
+    color: #fff;
+    font-size: 2.5rem;
   }
 }
 
@@ -122,11 +121,9 @@
   background: none;
   border: none;
   cursor: pointer;
-  height: 2rem;
-  width: 2rem;
 
-  svg {
-    fill: base.$color-primary;
+  i {
+    color: base.$color-primary;
     height: 100%;
     transition: all 0.3s;
     width: 100%;
@@ -136,13 +133,13 @@
     outline: none;
   }
 
-  &:hover svg {
-    fill: base.$color-grad-2;
+  &:hover i {
+    color: base.$color-grad-2;
     transform: translateY(-1px);
   }
 
-  &:active svg {
-    fill: base.$color-grad-2;
+  &:active i {
+    color: base.$color-grad-2;
     transform: translateY(0);
   }
 
@@ -169,11 +166,10 @@
   margin: 5rem auto;
   text-align: center;
 
-  svg {
+  i {
     animation: rotate 2s infinite linear;
-    fill: base.$color-primary;
-    height: 6rem;
-    width: 6rem;
+    color: base.$color-primary;
+    font-size: 6rem;
   }
 }
 
@@ -194,8 +190,8 @@
   max-width: 40rem;
   padding: 5rem 4rem;
 
-  svg {
-    fill: base.$color-primary;
+  i {
+    color: base.$color-primary;
     height: 3rem;
     transform: translateY(-0.3rem);
     width: 3rem;

@@ -1,5 +1,4 @@
 // local imports
-import icons from 'url:../../img/icons.svg'
 import View from './View'
 
 export class PaginationView extends View {
@@ -64,9 +63,9 @@ export class PaginationView extends View {
   _generatePrevButton(currentPage) {
     return `
       <button class="btn--inline pagination__btn--prev" data-goto="${currentPage - 1}">
-        <svg class="search__icon">
-          <use href="${icons}#icon-arrow-left"></use>
-        </svg>
+        <span class="search__icon">
+          <i class="fas fa-arrow-left"></i>
+        </span>
         <span>Page ${currentPage - 1}</span>
       </button>
     `
@@ -83,9 +82,9 @@ export class PaginationView extends View {
     return `
       <button class="btn--inline pagination__btn--next" data-goto="${currentPage + 1}">
         <span>Page ${currentPage + 1}</span>
-        <svg class="search__icon">
-          <use href="${icons}#icon-arrow-right"></use>
-        </svg>
+        <span class="search__icon">
+         <i class="fas fa-arrow-right"></i>
+        </span>
       </button>
     `
   }
