@@ -1,0 +1,55 @@
+/**************************/
+/* HOW IT WORKS SECTION */
+/**************************/
+
+.section-how {
+  padding: 9.6rem 0;
+}
+
+.step-number {
+  color: var(--color-grey-2);
+  font-size: 8.6rem;
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 1.2rem;
+}
+
+.step-description {
+  font-size: 1.8rem;
+  line-height: var(--line-height-large);
+}
+
+.step-img-box {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.step-img-box::before,
+.step-img-box::after {
+  border-radius: var(--border-radius-round);
+  content: '';
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.step-img-box::before {
+  background-color: var(--color-tint-1);
+  padding-bottom: 60%;
+  width: 60%;
+  z-index: -2;
+}
+
+.step-img-box::after {
+  background-color: var(--color-tint-2);
+  padding-bottom: 45%;
+  width: 45%;
+  z-index: -1;
+}
+
+.step-img {
+  width: 35%;
+}
