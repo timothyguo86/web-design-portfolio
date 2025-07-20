@@ -1,54 +1,33 @@
-<!DOCTYPE html><html lang="en"><head><script type="importmap">{"imports":{"fNVyn":"/icons.0809ef97.svg"}}</script>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700" rel="stylesheet">
-    <link href="/favicon.8b2f57bf.png" rel="shortcut icon" type="image/x-icon">
-
-    <link href="/Forkify.f7626f62.css" rel="stylesheet">
-    <script src="/Forkify.4a59a05f.js" type="module"></script>
-
-    <title>forkify // Search over 1,000,000 recipes</title>
-  </head>
-
-  <body>
-    <div class="container">
-      <header class="header">
-        <img alt="Logo" class="header__logo" src="/logo.726d37a8.png">
-        <form class="search">
-          <input class="search__field" placeholder="Search over 1,000,000 recipes..." type="text">
+<!DOCTYPE html><html lang=en><meta charset=UTF-8><meta content="width=device-width, initial-scale=1.0" name=viewport><meta content="ie=edge" http-equiv=X-UA-Compatible><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700" rel=stylesheet><link href=/favicon.38ab3f7a.png rel="icon shortcut" type=image/x-icon><link href=/Forkify.aa321be2.css rel=stylesheet><link href=/Forkify.defd1fc0.css rel=stylesheet><script src=/Forkify.164cb638.js type=module></script><title>forkify // Search over 1,000,000 recipes</title><body>
+    <div class=container>
+      <header class=header>
+        <img alt=Logo class=header__logo src=/logo.0240107d.png>
+        <form class=search>
+          <input class=search__field placeholder="Search over 1,000,000 recipes...">
           <button class="btn search__btn">
-            <svg class="search__icon">
-              <use href="/icons.21bad73c.svg#icon-search"></use>
-            </svg>
+            <i class="fa-search fas search__icon"></i>
             <span>Search</span>
           </button>
         </form>
 
-        <nav class="nav">
-          <ul class="nav__list">
-            <li class="nav__item">
+        <nav class=nav>
+          <ul class=nav__list>
+            <li class=nav__item>
               <button class="nav__btn nav__btn--add-recipe">
-                <svg class="nav__icon">
-                  <use href="/icons.21bad73c.svg#icon-edit"></use>
-                </svg>
+                <i class="fa-edit fas nav__icon"></i>
                 <span>Add recipe</span>
               </button>
             </li>
-            <li class="nav__item">
+            <li class=nav__item>
               <button class="nav__btn nav__btn--bookmarks">
-                <svg class="nav__icon">
-                  <use href="/icons.21bad73c.svg#icon-bookmark"></use>
-                </svg>
+                <i class="fa-bookmark fas nav__icon"></i>
                 <span>Bookmarks</span>
               </button>
-              <div class="bookmarks">
-                <ul class="bookmarks__list">
-                  <div class="message">
+              <div class=bookmarks>
+                <ul class=bookmarks__list>
+                  <div class=message>
                     <div>
-                      <svg>
-                        <use href="/icons.21bad73c.svg#icon-smile"></use>
-                      </svg>
+                      <i class="fa-smile fas"></i>
                     </div>
                     <p>
                       No bookmarks yet. Find a nice recipe and bookmark it :)
@@ -61,70 +40,66 @@
         </nav>
       </header>
 
-      <div class="search-results">
-        <ul class="results"></ul>
+      <div class=search-results>
+        <ul class=results></ul>
 
-        <div class="pagination"></div>
+        <div class=pagination></div>
 
-        <p class="copyright">
+        <p class=copyright>
           © Copyright by
-          <a class="github-link" href="https://github.com/timothyguo86" target="_blank">
+          <a class=github-link href=https://github.com/timothyguo86 target=_blank>
             Yuxin Guo </a>. Use for learning or your portfolio. Don't use to teach. Don't claim
           as your own.
         </p>
       </div>
 
-      <div class="recipe">
-        <div class="message">
+      <div class=recipe>
+        <div class=message>
           <div>
-            <svg>
-              <use href="/icons.21bad73c.svg#icon-smile"></use>
-            </svg>
+            <i class="fa-smile fas"></i>
           </div>
           <p>Start by searching for a recipe or an ingredient. Have fun!</p>
         </div>
       </div>
 
-      <div class="overlay hidden"></div>
+      <div class="hidden overlay"></div>
       <div class="add-recipe-window hidden">
-        <button class="btn--close-modal">×</button>
-        <form class="upload">
-          <div class="upload__column">
-            <h3 class="upload__heading">Recipe data</h3>
+        <button class=btn--close-modal>×</button>
+        <form class=upload>
+          <div class=upload__column>
+            <h3 class=upload__heading>Recipe data</h3>
             <label>Title</label>
-            <input name="title" required="" type="text">
+            <input name=title required>
             <label>URL</label>
-            <input name="sourceUrl" required="" type="text">
+            <input name=sourceUrl required>
             <label>Image URL</label>
-            <input name="image" required="" type="text">
+            <input name=image required>
             <label>Publisher</label>
-            <input name="publisher" required="" type="text">
+            <input name=publisher required>
             <label>Prep time</label>
-            <input name="cookingTime" required="" type="number">
+            <input name=cookingTime required type=number>
             <label>Servings</label>
-            <input name="servings" required="" type="number">
+            <input name=servings required type=number>
           </div>
 
-          <div class="upload__column">
-            <h3 class="upload__heading">Ingredients</h3>
+          <div class=upload__column>
+            <h3 class=upload__heading>Ingredients</h3>
             <label>Ingredient 1</label>
-            <input name="ingredient-1" placeholder="Format: 'Quantity,Unit,Description'" required="" type="text">
+            <input name=ingredient-1 placeholder="Format: 'Quantity,Unit,Description'" required>
             <label>Ingredient 2</label>
-            <input name="ingredient-2" placeholder="Format: 'Quantity,Unit,Description'" type="text">
+            <input name=ingredient-2 placeholder="Format: 'Quantity,Unit,Description'">
             <label>Ingredient 3</label>
-            <input name="ingredient-3" placeholder="Format: 'Quantity,Unit,Description'" type="text">
+            <input name=ingredient-3 placeholder="Format: 'Quantity,Unit,Description'">
             <label>Ingredient 4</label>
-            <input name="ingredient-4" placeholder="Format: 'Quantity,Unit,Description'" type="text">
+            <input name=ingredient-4 placeholder="Format: 'Quantity,Unit,Description'">
             <label>Ingredient 5</label>
-            <input name="ingredient-5" placeholder="Format: 'Quantity,Unit,Description'" type="text">
+            <input name=ingredient-5 placeholder="Format: 'Quantity,Unit,Description'">
             <label>Ingredient 6</label>
-            <input name="ingredient-6" placeholder="Format: 'Quantity,Unit,Description'" type="text">
+            <input name=ingredient-6 placeholder="Format: 'Quantity,Unit,Description'">
           </div>
 
           <button class="btn upload__btn">
-            <svg>
-              <use href="/icons.21bad73c.svg#icon-upload-cloud"></use>
-            </svg>
+            <i class="fa-cloud-upload-alt fas"></i>
             <span>Upload</span>
           </button>
         </form>
@@ -132,4 +107,3 @@
     </div>
   
 
-</body></html>

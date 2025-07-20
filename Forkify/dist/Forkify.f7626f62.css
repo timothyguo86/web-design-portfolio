@@ -51,6 +51,10 @@ body {
   }
 }
 
+.fas {
+  font-size: 2.4rem;
+}
+
 .btn--small, .btn--small:link, .btn--small:visited, .btn {
   color: #fff;
   cursor: pointer;
@@ -81,8 +85,8 @@ body {
   font-weight: 600;
 }
 
-.btn svg {
-  fill: currentColor;
+.btn i {
+  color: currentColor;
   width: 2.25rem;
   height: 2.25rem;
 }
@@ -94,8 +98,8 @@ body {
   text-decoration: none;
 }
 
-.btn--small svg, .btn--small:link svg, .btn--small:visited svg {
-  fill: currentColor;
+.btn--small i, .btn--small:link i, .btn--small:visited i {
+  color: currentColor;
   width: 1.75rem;
   height: 1.75rem;
 }
@@ -114,8 +118,8 @@ body {
   display: flex;
 }
 
-.btn--inline svg {
-  fill: currentColor;
+.btn--inline i {
+  color: currentColor;
   width: 1.6rem;
   height: 1.6rem;
   margin: 0 .2rem;
@@ -155,22 +159,19 @@ body {
   outline: none;
 }
 
-.btn--round svg {
-  fill: #fff;
-  width: 2.5rem;
-  height: 2.5rem;
+.btn--round i {
+  color: #fff;
+  font-size: 2.5rem;
 }
 
 .btn--tiny {
   cursor: pointer;
   background: none;
   border: none;
-  width: 2rem;
-  height: 2rem;
 }
 
-.btn--tiny svg {
-  fill: #f38e82;
+.btn--tiny i {
+  color: #f38e82;
   width: 100%;
   height: 100%;
   transition: all .3s;
@@ -180,13 +181,13 @@ body {
   outline: none;
 }
 
-.btn--tiny:hover svg {
-  fill: #f48982;
+.btn--tiny:hover i {
+  color: #f48982;
   transform: translateY(-1px);
 }
 
-.btn--tiny:active svg {
-  fill: #f48982;
+.btn--tiny:active i {
+  color: #f48982;
   transform: translateY(0);
 }
 
@@ -212,10 +213,9 @@ body {
   margin: 5rem auto;
 }
 
-.spinner svg {
-  fill: #f38e82;
-  width: 6rem;
-  height: 6rem;
+.spinner i {
+  color: #f38e82;
+  font-size: 6rem;
   animation: 2s linear infinite rotate;
 }
 
@@ -236,8 +236,8 @@ body {
   display: flex;
 }
 
-.message svg, .error svg {
-  fill: #f38e82;
+.message i, .error i {
+  color: #f38e82;
   width: 3rem;
   height: 3rem;
   transform: translateY(-.3rem);
@@ -341,8 +341,8 @@ body {
   display: flex;
 }
 
-.nav__btn svg {
-  fill: #f38e82;
+.nav__btn i {
+  color: #f38e82;
   width: 2.4rem;
   height: 2.4rem;
   margin-right: .7rem;
@@ -479,10 +479,9 @@ body {
   display: flex;
 }
 
-.preview__user-generated svg {
-  fill: #f38e82;
-  width: 1.2rem;
-  height: 1.2rem;
+.preview__user-generated i {
+  color: #f38e82;
+  font-size: 1.2rem;
 }
 
 .search-results {
@@ -599,7 +598,7 @@ body {
 }
 
 .recipe__info-icon {
-  fill: #f38e82;
+  color: #f38e82;
   width: 2.35rem;
   height: 2.35rem;
   margin-right: 1.15rem;
@@ -628,10 +627,9 @@ body {
   display: flex;
 }
 
-.recipe__user-generated svg {
-  fill: #f38e82;
-  width: 2.25rem;
-  height: 2.25rem;
+.recipe__user-generated i {
+  color: #f38e82;
+  font-size: 2.25rem;
 }
 
 .recipe__ingredients {
@@ -656,7 +654,7 @@ body {
 }
 
 .recipe__icon {
-  fill: #f38e82;
+  color: #f38e82;
   flex: none;
   width: 2rem;
   height: 2rem;
