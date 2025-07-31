@@ -1,14 +1,14 @@
 /* TODO: replace bulma with tailwind */
 .tutorial {
-  width: 600px;
-  text-align: center;
   margin: auto;
+  text-align: center;
+  width: 600px;
 }
 
 figure.image {
+  background-color: black;
   display: flex;
   justify-content: center;
-  background-color: black;
 }
 
 figure .image img {
@@ -38,8 +38,8 @@ figure .image img {
 }
 
 .dropdown-item {
-  display: flex;
   align-items: center;
+  display: flex;
   height: 60px;
 }
 
